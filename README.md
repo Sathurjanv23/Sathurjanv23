@@ -16,8 +16,8 @@
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=your-github-username&layout=compact&theme=radical)  
 
 ## 📫 Connect with Me  
-- 💼 [LinkedIn](https://www.linkedin.com/in/your-profile)  
+- 💼 [LinkedIn](https://www.linkedin.com/in/vijithakumarasena-sathurjan-aaa602325)  
 - 🐦 [Twitter](https://twitter.com/your-profile)  
-- 📧 Email: your-email@example.com  
+- 📧 Email: sathurjanfit@gmail.com 
 
 🚀 Let's build something amazing together!  
