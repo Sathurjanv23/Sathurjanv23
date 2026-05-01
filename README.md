@@ -131,7 +131,7 @@
 ## 🔥 Contribution Graph  
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_USERNAME&theme=react-dark"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Sathurjanv23&theme=github-compact"/>
 </p>
 
 ---
