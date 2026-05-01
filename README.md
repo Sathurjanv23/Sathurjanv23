@@ -1,6 +1,6 @@
 <!-- HEADER -->
 <h1 align="center">Hi 👋, I'm Sathurjan</h1>
-<h3 align="center">💻 Full Stack Developer | 🚀 Building Real Systems</h3>
+<h3 align="center">💻 Full Stack Developer | 📊 Data Analytics & 🤖 ML Enthusiast | 🚀 Building Real Systems</h3>
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com/?lines=Full+Stack+Developer;Next.js+%2B+Spring+Boot+Expert;MongoDB+%7C+JWT+%7C+Tailwind;Building+CRMS+%26+SMS+Systems&center=true&width=500&height=45">
