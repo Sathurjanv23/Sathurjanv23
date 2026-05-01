@@ -89,30 +89,44 @@
 ## 📈 GitHub Analytics  
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=radical&border_radius=10" height="180"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=radical&border_radius=10" height="180"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&theme=radical&border_radius=10" height="180"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&theme=radical&border_radius=10" height="180"/>
 </p>
 
 ---
 
 ## 💼 Featured Projects  
 
-### 🏢 CRMS System  
-✨ Full-stack enterprise system  
-✔ Role-based Client & Company Portal  
-✔ JWT Authentication  
-✔ Change Requests + PRD + Kanban Board  
-✔ MongoDB + Spring Boot + Next.js  
+### 🏢 CRMS System
+
+✨ Full-stack enterprise system
+✔ Role-based Client & Company Portal
+✔ JWT Authentication
+✔ Change Requests + PRD + Kanban Board
+✔ MongoDB + Spring Boot + Next.js
 
 ---
 
-### 🏫 School Management System  
-✨ Complete academic platform  
-✔ Admin / Teacher / Student dashboards  
-✔ Attendance + Marks + Announcements  
-✔ Secure login system  
+### 🏏 IPL Cricket Analytics Dashboard
+
+✨ Data Analytics + ML-ready system
+✔ Team performance & win analysis (real IPL data)
+✔ Player statistics visualization
+✔ Interactive dashboard (Streamlit + Plotly)
+✔ Large dataset handling & optimization
+✔ Extendable for ML-based predictions
 
 ---
+
+### 🏫 School Management System
+
+✨ Complete academic platform
+✔ Admin / Teacher / Student dashboards
+✔ Attendance + Marks + Announcements
+✔ Secure authentication system
+
+---
+
 
 ## 🔥 Contribution Graph  
 
