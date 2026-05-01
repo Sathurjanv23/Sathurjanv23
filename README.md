@@ -3,54 +3,86 @@
 <h3 align="center">💻 Full Stack Developer | 📊 Data Analytics & 🤖 ML Enthusiast | 🚀 Building Real Systems</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?lines=Full+Stack+Developer;Next.js+%2B+Spring+Boot+Expert;MongoDB+%7C+JWT+%7C+Tailwind;Building+CRMS+%26+SMS+Systems&center=true&width=500&height=45">
+  <img src="https://readme-typing-svg.herokuapp.com/?lines=Full+Stack+Developer;Machine+Learning+Enthusiast;Data+Analytics+%7C+Python+%7C+Pandas;Next.js+%2B+Spring+Boot+Expert;MongoDB+%7C+JWT+%7C+Tailwind;Building+CRMS+%26+Analytics+Systems&center=true&width=550&height=45">
 </p>
 
 ---
 
 ## 🚀 About Me  
 
-🎓 IT Student @ **University of Moratuwa**  
-💡 Passionate about **Full Stack Development & System Design**  
+🎓 IT Student @ **University of Moratuwa**
+💡 Passionate about **Full Stack Development, Data Analytics & Machine Learning**
 
-⚡ I build real-world systems like:  
-- 🏢 **CRMS (Change Request Management System)**  
-- 🏫 **School Management System (SMS)**  
-- 🌐 Modern Web Apps with **Next.js + Spring Boot + MongoDB**
+⚡ I build real-world systems like:
 
-🔥 Focus Areas:  
-- Scalable Backend APIs  
-- Secure JWT Authentication  
-- Clean UI with Tailwind CSS  
+* 🏢 **CRMS (Change Request Management System)**
+* 🏫 **School Management System (SMS)**
+* 🏏 **IPL Cricket Analytics Dashboard (Data Analytics + ML Ready)**
+* 🌐 Modern Web Apps with **Next.js + Spring Boot + MongoDB**
+
+🔥 Focus Areas:
+
+* Scalable Backend APIs
+* Secure JWT Authentication
+* Clean UI with Tailwind CSS
+* Data Analysis & Visualization (Pandas, Plotly)
+* Machine Learning Fundamentals (Scikit-learn)
+ 
 
 ---
 
-## 🛠️ Tech Stack  
+## 🛠️ Tech Stack
 
-### 💻 Languages  
+### 💻 Languages
+
 <p>
 <img src="https://skillicons.dev/icons?i=java,cpp,c,js,python" />
 </p>
 
-### 🌐 Frontend  
+---
+
+### 🌐 Frontend
+
 <p>
 <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,html,css" />
 </p>
 
-### ⚙️ Backend  
+---
+
+### ⚙️ Backend
+
 <p>
 <img src="https://skillicons.dev/icons?i=spring,nodejs" />
 </p>
 
-### 🗄️ Database  
+---
+
+### 🗄️ Database
+
 <p>
 <img src="https://skillicons.dev/icons?i=mongodb,mysql" />
 </p>
 
-### ☁️ Tools  
+---
+
+### 🤖 Data & Machine Learning
+
+<p>
+<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
+<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
+<img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=plotly&logoColor=white"/>
+<img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white"/>
+<img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
+</p>
+
+---
+
+### ☁️ Tools
+
 <p>
 <img src="https://skillicons.dev/icons?i=docker,aws,linux,vscode,git" />
 </p>
+
 
 ---
 
