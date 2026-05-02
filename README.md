@@ -89,8 +89,8 @@
 ## 📈 GitHub Analytics  
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&theme=radical&border_radius=10" height="180"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&theme=radical&border_radius=10" height="180"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&theme=radical" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&theme=radical" />
 </p>
 
 ---
