@@ -393,9 +393,13 @@ The ML components are designed with practical engineering principles:
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="180">
+### 💻 My GitHub at a Glance
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&theme=tokyonight&hide_border=true" height="180">
+<br>
+
+<img src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=tokyonight" height="180"/>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&hide_border=true&langs_count=8&theme=tokyonight" height="180"/>
 
 </div>
 
@@ -403,11 +407,37 @@ The ML components are designed with practical engineering principles:
 
 <div align="center">
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Sathurjanv23&theme=tokyonight&hide_border=true">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Sathurjanv23&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" />
 
 </div>
 
----
+<br>
+
+<div align="center">
+
+### 📈 Contribution Activity
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Sathurjanv23&bg_color=0D1117&color=58A6FF&line=00D4FF&point=FFFFFF&area=true&hide_border=true&custom_title=Sathurjanv23%27s%20Contribution%20Graph" />
+
+</div>
+
+<br>
+
+<div align="center">
+
+### 🏆 GitHub Achievements
+
+<img src="https://github-profile-trophy.vercel.app/?username=Sathurjanv23&theme=tokyonight&no-frame=true&no-bg=true&margin-w=10&column=6" />
+
+</div>
+
+<br>
+
+<div align="center">
+
+### 🔥 Consistency • Contributions • Continuous Learning
+
+</div>
 
 # 🔥 Contribution Activity
 
