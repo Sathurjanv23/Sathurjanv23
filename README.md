@@ -1,350 +1,335 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=240&color=0:020617,45:0f172a,100:164e63&text=SATHURJAN%20V&fontSize=58&fontColor=ffffff&fontAlignY=38&desc=SOFTWARE%20ENGINEER%20%7C%20FULL%20STACK%20BUILDER&descAlignY=60&descSize=18&animation=fadeIn">
+# ⚡ SATHURJAN
+
+### `Software Engineer in Progress` • `Full Stack Developer` • `AI Enthusiast`
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Building+real-world+software+%F0%9F%9A%80;Learning+Full+Stack+Development+%F0%9F%92%BB;Exploring+AI+%26+Automation+%F0%9F%A4%96;Turning+Ideas+into+Working+Products+%F0%9F%94%A5" alt="Typing SVG" />
 
 <br>
 
-<img src="https://readme-typing-svg.herokuapp.com/?font=Fira+Code&size=21&duration=2800&pause=800&color=38BDF8&center=true&vCenter=true&width=720&height=55&lines=Building+Real-World+Software+Systems;Java+%7C+Spring+Boot+%7C+React;AI+%26+Machine+Learning;Data+%26+Backend+Engineering;Turning+Ideas+Into+Working+Systems">
-
-<br><br>
-
 <a href="https://github.com/Sathurjanv23">
-<img src="https://img.shields.io/badge/GitHub-Sathurjanv23-020617?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
 </a>
-
 <a href="https://www.linkedin.com/in/vijithakumarasena-sathurjan">
-<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
 </a>
-
 <a href="mailto:sathu20030303@gmail.com">
-<img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
+<img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
 </a>
 
 <br><br>
 
-<img src="https://komarev.com/ghpvc/?username=Sathurjanv23&style=for-the-badge&color=0e75b6&label=PROFILE+VIEWS">
+<img src="https://komarev.com/ghpvc/?username=Sathurjanv23&style=for-the-badge&color=blue" alt="Profile Views" />
 
 </div>
 
 ---
 
-## 👨‍💻 Who I Am
+# 👨‍💻 About Me
 
-I'm **Sathurjan**, an Information Technology undergraduate at the **University of Moratuwa**, focused on becoming a strong software engineer through continuous learning and real-world development.
+Hi! I'm **Sathurjan**, a developer focused on building practical software and continuously improving my engineering skills.
 
-I enjoy building systems that combine:
+I enjoy taking an idea, breaking it into smaller problems, designing a solution, and turning it into a working application.
 
 ```text
-💻 Software Engineering
-⚙️ Backend Architecture
-🌐 Full Stack Development
-🤖 AI / Machine Learning
-📊 Data Analytics
-🗄️ Database Engineering
-🧠 System Design
-☁️ Cloud & Deployment
+🎯 Goal       → Become a strong Software Engineer
+💻 Focus      → Full Stack Development
+🤖 Interest   → AI & Intelligent Applications
+🧠 Mindset    → Learn → Build → Break → Fix → Improve
+🚀 Approach   → Real projects over endless tutorials
 ```
 
-> **I learn by building. I improve by solving. I grow by shipping.**
+---
+
+# 🚀 Currently Building
+
+## 🧠 ReqTrace AI
+
+> **An intelligent requirement-to-development traceability platform**
+
+ReqTrace AI is designed to connect software requirements with development work, helping teams understand how a requirement moves through the development lifecycle.
+
+### Core idea
+
+```text
+Requirement
+     ↓
+Analysis
+     ↓
+Development
+     ↓
+Testing
+     ↓
+Validation
+     ↓
+Traceability
+```
+
+### 🔥 Project Focus
+
+* 📋 Requirement management
+* 🔗 Requirement traceability
+* 🧩 Development tracking
+* 🧪 Testing relationship
+* 🤖 AI-assisted analysis
+* 📊 Project insights
+* 👥 Team collaboration
+
+**Status:** `🚧 Actively Building`
 
 ---
 
-## ⚡ Engineering Mindset
+# 🛠️ Tech Stack
 
-<div align="center">
+### 💻 Languages
 
-| THINK | BUILD | DEBUG | IMPROVE | SHIP |
-| :---: | :---: | :---: | :-----: | :--: |
-|   💡  |   💻  |   🐛  |    📈   |  🚀  |
+<p>
+<img src="https://skillicons.dev/icons?i=java,js,html,css" />
+</p>
 
-</div>
+### ⚙️ Backend
 
-I believe software engineering is more than writing code — it's about understanding problems, designing solutions, testing assumptions, and continuously improving the system.
+<p>
+<img src="https://skillicons.dev/icons?i=spring,nodejs" />
+</p>
+
+### 🎨 Frontend
+
+<p>
+<img src="https://skillicons.dev/icons?i=html,css,js" />
+</p>
+
+### 🗄️ Database
+
+<p>
+<img src="https://skillicons.dev/icons?i=mongodb,mysql" />
+</p>
+
+### 🔧 Tools & Platforms
+
+<p>
+<img src="https://skillicons.dev/icons?i=git,github,vscode,idea,postman,docker" />
+</p>
 
 ---
 
-# 🚀 Featured Work
+# 🧩 Featured Projects
 
-### 🤖 ReqTrace AI
+### 🧠 ReqTrace AI
 
-**AI-Powered Requirement Analysis & Traceability Platform**
+**Requirement Traceability & AI Platform**
 
-A platform designed to help software teams manage requirements, analyze them intelligently, and maintain traceability throughout the development lifecycle.
+`Java` `Spring Boot` `MongoDB` `AI`
 
-**Focus**
-
-`Requirement Management` `AI Analysis` `Traceability` `Dashboard` `Authentication`
-
-**Stack**
-
-`Java` `Spring Boot` `MongoDB` `React` `AI`
+> Building a smarter way to connect requirements, development and testing.
 
 ---
 
 ### 🌐 IWS.LK
 
-**AI-Powered Workforce Intelligence Platform**
+**Web Application Project**
 
-A multilingual platform concept focused on connecting clients with skilled service providers while using intelligent matching and data-driven insights.
-
-**Focus**
-
-`Multi-role Platform` `Authentication` `Matching` `Reviews` `AI/ML` `Analytics`
-
-**Stack**
-
-`React` `FastAPI` `Python` `MongoDB` `Scikit-learn`
+A practical application focused on solving real-world user requirements.
 
 ---
 
-### 🏢 CRMS
+### 📊 IPL Cricket Analytics
 
-**Change Requirement Management System**
+**Data Analytics Project**
 
-A full-stack system designed to manage change requirements, projects, workflows and collaboration between clients and companies.
-
-**Focus**
-
-`Change Requests` `Requirements` `Kanban` `RBAC` `REST APIs`
-
-**Stack**
-
-`Java` `Spring Boot` `Next.js` `React` `MongoDB`
+Exploring cricket data and transforming raw information into useful insights.
 
 ---
 
-### 🏏 IPL Analytics
+### 🏫 School Management System
 
-**Interactive Cricket Data Analytics Platform**
+**Management Application**
 
-A data analytics project focused on extracting insights from IPL datasets through interactive visualizations.
-
-**Stack**
-
-`Python` `Pandas` `NumPy` `Plotly` `Streamlit` `Scikit-learn`
+A system designed to organize and manage school-related operations.
 
 ---
 
-# 🧰 Technology Arsenal
+### 🏥 MedAssist AI X
 
-### 💻 Languages
+**AI-Based Application**
 
-<p align="center">
-<img src="https://skillicons.dev/icons?i=java,python,cpp,c,javascript">
-</p>
-
-### 🌐 Frontend
-
-<p align="center">
-<img src="https://skillicons.dev/icons?i=react,nextjs,vite,tailwind,html,css">
-</p>
-
-### ⚙️ Backend
-
-<p align="center">
-<img src="https://skillicons.dev/icons?i=spring,nodejs,fastapi">
-</p>
-
-### 🗄️ Databases
-
-<p align="center">
-<img src="https://skillicons.dev/icons?i=mongodb,mysql,postgresql">
-</p>
-
-### 🤖 AI / Data
-
-<p align="center">
-
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
-
-<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white">
-
-<img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white">
-
-<img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white">
-
-</p>
-
-### 🛠️ Tools & Infrastructure
-
-<p align="center">
-<img src="https://skillicons.dev/icons?i=git,github,docker,linux,vscode,aws">
-</p>
+Exploring the use of AI to build intelligent application experiences.
 
 ---
 
-# 📊 GitHub Intelligence
+# 📈 GitHub Intelligence
 
 <div align="center">
 
-<img height="175" src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=tokyonight">
+<img src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&hide_border=true&count_private=true&include_all_commits=true" height="180" />
 
-<img height="175" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&hide_border=true&langs_count=8&theme=tokyonight">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&hide_border=true&langs_count=8" height="180" />
 
-<br><br>
+</div>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Sathurjanv23&theme=tokyonight&hide_border=true">
+<br>
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=Sathurjanv23&hide_border=true" />
 
 </div>
 
 ---
 
-# 📈 Contribution Activity
+# 🏆 Developer Activity
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Sathurjanv23&bg_color=020617&color=38BDF8&line=22D3EE&point=FFFFFF&area=true&hide_border=true&custom_title=Sathurjanv23%20Contribution%20Activity">
+<img src="https://github-profile-trophy.vercel.app/?username=Sathurjanv23&theme=flat&no-frame=true&margin-w=10" />
 
 </div>
 
 ---
 
-# 🏆 GitHub Achievements
+# 📊 Contribution Graph
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=Sathurjanv23&theme=tokyonight&no-frame=true&no-bg=true&margin-w=8&column=6">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Sathurjanv23&hide_border=true" width="95%" />
 
 </div>
 
 ---
 
-# 🧊 3D Contribution Universe
+# 🧠 Engineering Mindset
 
-<div align="center">
+```text
+┌──────────────────────────────────────────────┐
+│              MY DEVELOPMENT LOOP             │
+├──────────────────────────────────────────────┤
+│                                              │
+│   Learn                                      │
+│     ↓                                        │
+│   Understand                                 │
+│     ↓                                        │
+│   Build                                      │
+│     ↓                                        │
+│   Make Mistakes                              │
+│     ↓                                        │
+│   Debug                                      │
+│     ↓                                        │
+│   Improve                                    │
+│     ↓                                        │
+│   Build Again                                │
+│                                              │
+└──────────────────────────────────────────────┘
+```
 
-<img src="https://github-profile-3d-contrib.vercel.app/api?username=Sathurjanv23&theme=tokyonight">
-
-</div>
-
-<p align="center">
-
-<sub>Every contribution represents another step in the journey.</sub>
-
-</p>
+> **I don't want to just learn technologies.
+> I want to understand how to use them to solve problems.**
 
 ---
 
 # 🎯 Current Mission
 
-<div align="center">
-
 ```text
-┌─────────────────────────────────────────────────┐
-│                                                 │
-│              CURRENT MISSION 🚀                │
-│                                                 │
-│   Become a stronger Software Engineer           │
-│                                                 │
-│   ├── Master Java & Spring Boot                 │
-│   ├── Build production-ready APIs              │
-│   ├── Improve React & Full Stack skills         │
-│   ├── Strengthen Database Architecture         │
-│   ├── Build practical AI/ML systems             │
-│   ├── Learn System Design                       │
-│   └── Deploy real-world applications            │
-│                                                 │
-└─────────────────────────────────────────────────┘
+☑ Strengthen Java fundamentals
+☑ Build backend skills with Spring Boot
+☑ Learn database design
+☑ Build REST APIs
+☑ Improve Git & GitHub workflow
+☑ Develop real-world projects
+☑ Explore AI integration
+☐ Become internship-ready
+☐ Become a professional Software Engineer
 ```
-
-</div>
 
 ---
 
-# 📚 Currently Learning
+# 🌱 Learning Roadmap
 
 ```text
 Java
-  ↓
+ │
+ ├── OOP
+ ├── Collections
+ ├── Exception Handling
+ └── Problem Solving
+        │
+        ▼
 Spring Boot
-  ↓
-REST API Architecture
-  ↓
-React / Next.js
-  ↓
-MongoDB & Database Design
-  ↓
-AI / Machine Learning
-  ↓
-System Design
-  ↓
-Cloud & Deployment
+ │
+ ├── REST APIs
+ ├── Authentication
+ ├── Database Integration
+ └── Backend Architecture
+        │
+        ▼
+Frontend
+ │
+ ├── HTML
+ ├── CSS
+ ├── JavaScript
+ └── Modern UI
+        │
+        ▼
+Full Stack
+ │
+ ├── API Integration
+ ├── Authentication
+ ├── Deployment
+ └── Production Projects
+        │
+        ▼
+AI Engineering 🚀
 ```
 
 ---
 
-# 🏆 Achievements
+# 💡 What I Believe
 
-<div align="center">
+> **Consistency beats motivation.**
 
-| Achievement                                | Year |
-| ------------------------------------------ | :--: |
-| 🥇 CryptX 2.0 — Top Performer              | 2026 |
-| 🏅 Innovate with Ballerina — WSO2          | 2026 |
-| 📮 Postman API Fundamentals Student Expert | 2025 |
-| 💻 HackerRank Java Basic                   |   —  |
-| 🎨 HackerRank CSS Basic                    |   —  |
+> **Build projects. Break things. Debug them. Learn why they broke.**
 
-</div>
+> **Every bug is another lesson.**
 
 ---
 
-# 🎓 Education
+# 🤝 Open To
 
-<div align="center">
+I'm interested in:
 
-### 🎓 University of Moratuwa 🇱🇰
-
-**BSc (Hons) in Information Technology**
-
-</div>
-
----
-
-# 💼 Open To Opportunities
-
-I'm interested in internship and early-career opportunities in:
-
-<div align="center">
-
-`Software Engineering`
-
-`Full Stack Development`
-
-`Backend Engineering`
-
-`AI / ML`
-
-`Data Analytics`
-
-`AI-Powered Applications`
-
-</div>
+* 💼 Software Engineering Internships
+* 🌐 Full Stack Development
+* ☕ Java / Spring Boot opportunities
+* 🤖 AI-powered application development
+* 🤝 Open-source collaboration
+* 🚀 Real-world software projects
 
 ---
 
-# 🤝 Let's Build Something
+# 📫 Let's Connect
 
 <div align="center">
 
 <a href="https://github.com/Sathurjanv23">
-<img src="https://img.shields.io/badge/GitHub-Visit-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github" />
 </a>
 
 <a href="https://www.linkedin.com/in/vijithakumarasena-sathurjan">
-<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
+<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin" />
 </a>
 
 <a href="mailto:sathu20030303@gmail.com">
-<img src="https://img.shields.io/badge/Gmail-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
+<img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail" />
 </a>
 
-<br><br>
+</div>
 
-### 💡 Think. Build. Break. Learn. Improve. Ship.
+---
 
-<br>
+<div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:020617,50:0f172a,100:164e63&height=140&section=footer">
+### ⚡ BUILD • LEARN • DEBUG • REPEAT ⚡
+
+**Sathurjan | Software Engineer in Progress**
 
 </div>
