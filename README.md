@@ -1,389 +1,186 @@
-<!-- ========================================================= -->
-<!--                        HEADER                             -->
-<!-- ========================================================= -->
-
 <div align="center">
 
-# 👋 Hi, I'm Sathurjan
-
-### 💻 Full Stack Developer | 🤖 AI/ML Enthusiast | 📊 Data Analytics
-
-<p>
-Building real-world software systems by combining
-<strong>Full Stack Engineering, Data, AI & Machine Learning.</strong>
-</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=SATHURJAN%20V&fontSize=55&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Software%20Engineer%20%7C%20Full%20Stack%20Developer&descAlignY=58&descSize=20">
 
 <br>
 
-<img src="https://readme-typing-svg.herokuapp.com/?lines=Full+Stack+Developer;AI+%26+Machine+Learning+Enthusiast;Data+Analytics+%7C+Python+%7C+Pandas;React+%7C+Next.js+%7C+Spring+Boot;FastAPI+%7C+MongoDB+%7C+REST+APIs;Building+Real-World+Systems&center=true&width=700&height=50&font=Fira%20Code&size=21&pause=900">
-
-<br><br>
-
 <a href="https://github.com/Sathurjanv23">
-<img src="https://img.shields.io/badge/GitHub-Sathurjanv23-181717?style=for-the-badge&logo=github">
+<img src="https://img.shields.io/badge/GitHub-Sathurjanv23-111111?style=for-the-badge&logo=github&logoColor=white">
 </a>
-
+&nbsp;
 <a href="https://www.linkedin.com/in/vijithakumarasena-sathurjan">
-<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin">
+<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
 </a>
-
+&nbsp;
 <a href="mailto:sathu20030303@gmail.com">
-<img src="https://img.shields.io/badge/Gmail-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
+<img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
 </a>
 
 <br><br>
 
-<img src="https://komarev.com/ghpvc/?username=Sathurjanv23&label=Profile%20Views&color=0e75b6&style=flat">
+<img src="https://readme-typing-svg.herokuapp.com/?lines=Software+Engineering;Full+Stack+Development;Java+%7C+Spring+Boot+%7C+React;AI+%26+Machine+Learning;Data+Analytics;Building+Real-World+Systems&center=true&width=650&height=45&font=Fira%20Code&size=20&pause=900">
 
-<img src="https://img.shields.io/github/followers/Sathurjanv23?label=Followers&style=flat">
+<br><br>
+
+<img src="https://komarev.com/ghpvc/?username=Sathurjanv23&label=PROFILE+VIEWS&color=0e75b6&style=for-the-badge">
 
 </div>
 
 ---
 
-# 👨‍💻 About Me
+# 👋 Hello, I'm Sathurjan
 
-🎓 **BSc (Hons) in Information Technology Undergraduate @ University of Moratuwa**
+I'm an **Information Technology undergraduate** passionate about turning ideas into practical software systems.
 
-💻 I am passionate about building **real-world full-stack applications**, intelligent systems, and data-driven solutions.
+My main interests are:
 
-🤖 My main interests are:
+* 💻 Full Stack Development
+* ⚙️ Backend Engineering
+* 🤖 Artificial Intelligence & Machine Learning
+* 📊 Data Analytics
+* 🗄️ Database Engineering
+* 🧠 System Design
+* ☁️ Cloud & Deployment
 
-- Full Stack Development
-- Artificial Intelligence
-- Machine Learning
-- Data Analytics
-- Backend Engineering
-- REST API Development
-- Database Architecture
-- System Design
-- Cloud & Deployment
+> **Learn → Build → Debug → Improve → Ship**
 
-🚀 I strongly believe in learning by **building, experimenting, debugging, and shipping real systems.**
+I believe the best way to learn software engineering is by building real systems, solving problems, and continuously improving.
 
 ---
 
-# ⚡ What I Do
+# 🚀 What I'm Building
 
-```text
-┌──────────────────────────────────────────────────────────────┐
-│                                                              │
-│   💻 Full Stack Development                                  │
-│   🤖 AI & Machine Learning                                   │
-│   📊 Data Analytics & Visualization                          │
-│   ⚙️ Backend & REST API Engineering                          │
-│   🔐 Authentication & Secure Systems                          │
-│   🗄️ Database Design & Management                            │
-│   ☁️ Cloud & Deployment                                      │
-│   📈 Scalable System Architecture                            │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
-````
+<div align="center">
+
+| Area                    | Focus                                            |
+| ----------------------- | ------------------------------------------------ |
+| 💻 Software Engineering | Production-oriented applications                 |
+| 🌐 Full Stack           | React, Next.js, Spring Boot                      |
+| ⚙️ Backend              | REST APIs, authentication, system architecture   |
+| 🤖 AI / ML              | Intelligent applications and ML pipelines        |
+| 📊 Data                 | Analytics, visualization and data-driven systems |
+| 🗄️ Databases           | MongoDB, MySQL, PostgreSQL                       |
+| ☁️ Infrastructure       | Git, Docker, Linux and cloud technologies        |
+
+</div>
 
 ---
 
-# 🚀 Featured Projects
+# ⭐ Featured Projects
 
-## 🌐 IWS.LK — AI-Powered Workforce Intelligence Platform
+## 🤖 ReqTrace AI
 
-<p align="center">
+> AI-powered requirement analysis and traceability platform.
 
-<img src="https://img.shields.io/badge/🇱🇰%20Sri%20Lanka-Workforce%20Intelligence-blue?style=for-the-badge">
+**Core Focus**
 
-<img src="https://img.shields.io/badge/AI%2FML-Intelligent%20Matching-purple?style=for-the-badge">
+* 📋 Requirement Management
+* 🤖 AI-assisted Requirement Analysis
+* 🔗 Requirement Traceability
+* 📊 Project Dashboard
+* 🔐 Authentication
+* 🗄️ MongoDB Data Management
 
-<img src="https://img.shields.io/badge/Multilingual-Tamil%20%7C%20Sinhala%20%7C%20English-green?style=for-the-badge">
+**Stack**
 
-<img src="https://img.shields.io/badge/Status-Active%20Development-orange?style=for-the-badge">
+`Java` `Spring Boot` `MongoDB` `React` `AI`
 
-</p>
+---
 
-> **An AI-powered multilingual workforce intelligence platform designed to connect clients with trusted skilled workers across Sri Lanka.**
+## 🌐 IWS.LK
 
-### 🎯 The Problem
+> AI-powered workforce intelligence platform designed to connect clients with skilled service providers.
 
-Clients often struggle to find reliable:
+**Core Focus**
 
-* 🔧 Plumbers
-* ⚡ Electricians
-* 🛠️ Technicians
-* 📚 Tutors
-* 💻 IT Professionals
-* 👷 Skilled Service Providers
-
-At the same time, workers may lack trusted digital profiles, consistent job opportunities, transparent pricing, and career development guidance.
-
-### 💡 The Solution
-
-**IWS.LK** brings clients, workers, businesses, and administrators together through one intelligent platform.
-
-### 🧩 Core Platform
-
-* 👤 Client / Worker / Business / Admin Roles
+* 👤 Multi-role platform
 * 🔐 JWT Authentication
-* 🔒 bcrypt Password Hashing
-* 📧 Email OTP Verification
-* 🔑 Google OAuth
-* 📋 Task Posting & Discovery
-* 🤝 Worker Applications
-* 📍 Location-aware Matching
-* ⭐ Reviews & Ratings
-* 🔔 Notifications
-* 🧾 Invoice Management
-* 🛡️ Role-Based Admin Portal
-* 🌍 English / Tamil / Sinhala Interface
+* 📧 OTP Verification
+* 📍 Location-aware matching
+* ⭐ Reviews & ratings
+* 🤖 AI-assisted matching
+* 📊 Data-driven insights
+* 🌍 Multilingual experience
 
-### 🤖 AI / ML Intelligence
+**Stack**
 
-* 🧠 Multilingual Task Classification
-* 📝 Information Extraction
-* 🏷️ Automatic Category Detection
-* 🚨 Urgency Detection
-* 🛠️ Required Skill Detection
-* 👷 Explainable Worker Recommendations
-* 💰 Fair Price Prediction
-* 🛡️ Worker Trust Score
-* 🚨 Unusual Behaviour Detection
-* 💬 Review Sentiment Analysis
-* 📊 Service Quality Analysis
-* 📈 District-level Demand Forecasting
-* 🎯 Skill Gap Detection
-* 🚀 Career Recommendations
-* 🎤 Future Voice-assisted Task Creation
-* 🖼️ Future Image-assisted Task Creation
-
-### 🧠 Explainable AI
-
-Instead of simply showing an unexplained prediction, the platform is designed to explain why a worker is recommended.
-
-```text
-┌────────────────────────────────────────────┐
-│              🤖 AI MATCH RESULT            │
-├────────────────────────────────────────────┤
-│                                            │
-│  ⭐ 92% MATCH                              │
-│                                            │
-│  ✓ Relevant Skills                         │
-│  ✓ Nearby Location                         │
-│  ✓ Suitable Availability                   │
-│  ✓ Strong Ratings                          │
-│  ✓ Reliable Completion History             │
-│                                            │
-└────────────────────────────────────────────┘
-```
-
-### ⚙️ Technology
-
-| Layer            | Technologies                         |
-| ---------------- | ------------------------------------ |
-| Frontend         | React, Vite, Tailwind CSS            |
-| Backend          | Python, FastAPI, Uvicorn             |
-| Database         | MongoDB Atlas                        |
-| Authentication   | JWT, bcrypt, Email OTP, Google OAuth |
-| Machine Learning | Python, Scikit-learn                 |
-| Data Processing  | Pandas, NumPy                        |
-| Architecture     | REST API + ML Pipelines              |
-
-### 🧪 ML Engineering Approach
-
-The ML components are designed with practical engineering principles:
-
-* Dataset separation
-* Feature preprocessing
-* Reproducible pipelines
-* Saved preprocessing
-* Model evaluation
-* Confidence scores
-* Explainable outputs
-* Validation
-* Safe fallback behaviour
-* Backend integration
-* Monitoring-ready architecture
+`React` `Vite` `Tailwind CSS` `FastAPI` `Python` `MongoDB` `Scikit-learn`
 
 ---
 
-# 🏢 CRMS — Change Requirement Management System
+## 🏢 CRMS
 
-> **Enterprise-oriented full-stack platform for managing change requirements between companies and clients.**
+> Change Requirement Management System for managing software change requests between clients and companies.
 
-### ✨ Key Features
+**Core Focus**
 
+* 📝 Change Requests
+* 📋 Requirements
+* 📊 Kanban Workflow
+* 👥 Role-based access
 * 🔐 JWT Authentication
-* 👥 Client & Company Portals
-* 📝 Change Request Management
-* 📋 PRD Management
-* 📌 Kanban Workflow
-* 📊 Requirement Tracking
-* 👤 Role-Based Access Control
 * 🔔 Notifications
-* 🗂️ Project Management
-* 🗄️ MongoDB Database
-* ⚙️ Spring Boot REST APIs
+* 🗄️ MongoDB
 
-### 🛠️ Tech Stack
+**Stack**
 
-`Next.js` `React` `Spring Boot` `Java` `MongoDB` `JWT` `Tailwind CSS`
+`Java` `Spring Boot` `Next.js` `React` `MongoDB` `JWT`
 
 ---
 
-# 🏏 IPL Cricket Analytics Dashboard
+## 🏏 IPL Cricket Analytics
 
-> **Interactive data analytics platform built using real IPL datasets.**
+> Interactive analytics platform built using IPL datasets.
 
-### 📊 Analytics
-
-* 🏆 Team Performance Analysis
-* 📈 Win / Loss Analysis
-* 👤 Player Statistics
-* 🏏 Batting & Bowling Analysis
-* 📊 Interactive Visualizations
-* 🔎 Dataset Exploration
-* ⚡ Large Dataset Processing
-* 🤖 ML-ready architecture
-
-### 🛠️ Tech Stack
+**Focus**
 
 `Python` `Pandas` `NumPy` `Plotly` `Streamlit` `Scikit-learn`
 
 ---
 
-# 🏫 School Management System
+# 🧰 Tech Stack
 
-> **Complete academic management platform for administrators, teachers, and students.**
-
-### ✨ Features
-
-* 👨‍💼 Admin Dashboard
-* 👨‍🏫 Teacher Dashboard
-* 🎓 Student Dashboard
-* 📅 Attendance Management
-* 📝 Marks Management
-* 📢 Announcements
-* 🔐 Authentication & Authorization
-* 📊 Academic Monitoring
-
-### 🛠️ Tech Stack
-
-`React` `Spring Boot` `Java` `MongoDB` `JWT`
-
----
-
-# 🚨 PROJECT NOVA — AI Emergency Response Network
-
-> **AI-powered emergency intelligence and response platform designed to support faster and smarter emergency management.**
-
-### 🧠 Core Capabilities
-
-* 🚨 AI Emergency Analysis
-* 🎯 Smart Emergency Prioritization
-* 📍 Live Emergency Map
-* 🗺️ GIS / Mapbox Integration
-* 🤖 Disaster Prediction
-* 🚑 Rescue & Resource Allocation
-* 🌍 Multilingual Emergency Support
-* 📊 Emergency Intelligence Dashboard
-
-### 🛠️ Technology
-
-`Next.js` `Spring Boot` `Python` `PostgreSQL` `MongoDB` `Machine Learning`
-
----
-
-# 🏥 MedAssist AI X
-
-> **AI-powered healthcare platform concept focused on intelligent healthcare workflows and AI-assisted decision support.**
-
-### 🧠 Areas
-
-* 🤖 AI-assisted workflows
-* 📄 Document Processing
-* 🔎 OCR
-* 🧠 Machine Learning
-* 💬 Intelligent Assistance
-* 🗂️ Healthcare Data Processing
-
-### 🛠️ Technology
-
-`Next.js` `Spring Boot` `Python` `MongoDB` `AI/ML`
-
----
-
-# 🧰 Technical Toolbox
-
-## 💻 Programming Languages
+### Languages
 
 <p>
 <img src="https://skillicons.dev/icons?i=java,python,cpp,c,javascript">
 </p>
 
----
-
-## 🌐 Frontend Development
+### Frontend
 
 <p>
 <img src="https://skillicons.dev/icons?i=react,nextjs,vite,tailwind,html,css">
 </p>
 
----
-
-## ⚙️ Backend Development
+### Backend
 
 <p>
 <img src="https://skillicons.dev/icons?i=spring,nodejs,fastapi">
 </p>
 
----
-
-## 🗄️ Databases
+### Databases
 
 <p>
 <img src="https://skillicons.dev/icons?i=mongodb,mysql,postgresql">
 </p>
 
----
-
-## 🤖 AI / Data Science
+### AI / Data
 
 <p>
+<img src="https://skillicons.dev/icons?i=python">
+</p>
 
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-
+<p>
 <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
-
 <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white">
-
-<img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=matplotlib&logoColor=white">
-
-<img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white">
-
 <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white">
-
-<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
-
+<img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white">
 </p>
 
----
-
-## 🔐 Security & APIs
+### Tools & Infrastructure
 
 <p>
-
-<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
-
-<img src="https://img.shields.io/badge/REST%20API-02569B?style=for-the-badge">
-
-<img src="https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=google&logoColor=white">
-
-<img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white">
-
-</p>
-
----
-
-## ☁️ Tools & Infrastructure
-
-<p>
-<img src="https://skillicons.dev/icons?i=git,github,docker,aws,linux,vscode">
+<img src="https://skillicons.dev/icons?i=git,github,docker,linux,vscode,aws">
 </p>
 
 ---
@@ -392,67 +189,31 @@ The ML components are designed with practical engineering principles:
 
 <div align="center">
 
-### 💻 My GitHub at a Glance
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=tokyonight">
 
-<br>
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&hide_border=true&langs_count=8&theme=tokyonight">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Sathurjanv23&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=tokyonight" height="180"/>
+<br><br>
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sathurjanv23&layout=compact&hide_border=true&langs_count=8&theme=tokyonight" height="180"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Sathurjanv23&theme=tokyonight&hide_border=true">
 
-</div>
+<br><br>
 
-<br>
-
-<div align="center">
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Sathurjanv23&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" />
-
-</div>
-
-<br>
-
-<div align="center">
-
-### 📈 Contribution Activity
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Sathurjanv23&bg_color=0D1117&color=58A6FF&line=00D4FF&point=FFFFFF&area=true&hide_border=true&custom_title=Sathurjanv23%27s%20Contribution%20Graph" />
-
-</div>
-
-<br>
-
-<div align="center">
-
-### 🏆 GitHub Achievements
-
-<img src="https://github-profile-trophy.vercel.app/?username=Sathurjanv23&theme=tokyonight&no-frame=true&no-bg=true&margin-w=10&column=6" />
-
-</div>
-
-<br>
-
-<div align="center">
-
-### 🔥 Consistency • Contributions • Continuous Learning
-
-</div>
-
-# 🔥 Contribution Activity
-
-<div align="center">
-
-### 🚀 Building • Committing • Learning • Improving
-
-<br>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Sathurjanv23&bg_color=0D1117&color=58A6FF&line=00D4FF&point=FFFFFF&area=true&hide_border=true">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Sathurjanv23&bg_color=0D1117&color=58A6FF&line=00D4FF&point=FFFFFF&area=true&hide_border=true&custom_title=Sathurjanv23%27s%20Contribution%20Graph">
 
 </div>
 
 ---
 
-# 🧊 3D Contribution Profile
+# 🏆 Achievements
+
+<div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=Sathurjanv23&theme=tokyonight&no-frame=true&no-bg=true&margin-w=10&column=6">
+
+</div>
+
+<br>
 
 <div align="center">
 
@@ -460,135 +221,57 @@ The ML components are designed with practical engineering principles:
 
 </div>
 
-> 📌 **My GitHub activity represents continuous learning, experimentation, project development, and open-source exploration.**
-
 ---
 
-# 📈 My Development Journey
+# 🎯 Currently Learning
 
 ```text
-                    SOFTWARE ENGINEERING JOURNEY
-
-       ┌─────────────┐
-       │   💡 Ideas  │
-       └──────┬──────┘
-              │
-              ▼
-       ┌─────────────┐
-       │  🧠 Learn   │
-       └──────┬──────┘
-              │
-              ▼
-       ┌─────────────┐
-       │  💻 Build   │
-       └──────┬──────┘
-              │
-              ▼
-       ┌─────────────┐
-       │  🧪 Test    │
-       └──────┬──────┘
-              │
-              ▼
-       ┌─────────────┐
-       │  🚀 Deploy  │
-       └──────┬──────┘
-              │
-              ▼
-       ┌─────────────┐
-       │  📈 Improve │
-       └──────┬──────┘
-              │
-              └──────────────► 🔁 Repeat
+Java & Spring Boot
+        ↓
+REST API Architecture
+        ↓
+React & Next.js
+        ↓
+MongoDB & Database Design
+        ↓
+AI / Machine Learning
+        ↓
+System Design
+        ↓
+Cloud & Deployment
 ```
-
----
-
-# 🎯 Current Focus
-
-<div align="center">
-
-| Focus Area       | Goal                                  |
-| ---------------- | ------------------------------------- |
-| 💻 Full Stack    | Build production-ready applications   |
-| 🤖 AI / ML       | Develop practical intelligent systems |
-| 📊 Data          | Turn data into meaningful insights    |
-| ⚙️ Backend       | Design secure and scalable APIs       |
-| 🗄️ Database     | Improve data architecture             |
-| ☁️ Cloud         | Learn deployment & infrastructure     |
-| 🧠 System Design | Build scalable architectures          |
-
-</div>
-
----
-
-# 🌱 Currently Learning
-
-* Advanced Spring Boot
-* REST API Architecture
-* Machine Learning with Python
-* Data Analytics
-* Advanced React & Next.js
-* FastAPI
-* Cloud Deployment
-* System Design
-* Scalable Application Architecture
-* AI-powered Application Development
-
----
-
-# 🏆 Achievements & Certifications
-
-<div align="center">
-
-| 🏆 Achievement                             | 📅   |
-| ------------------------------------------ | ---- |
-| 🥇 CryptX 2.0 — Top Performer              | 2026 |
-| 🏅 Innovate with Ballerina — WSO2          | 2026 |
-| 📮 Postman API Fundamentals Student Expert | 2025 |
-| 💻 HackerRank Java Basic                   | —    |
-| 🎨 HackerRank CSS Basic                    | —    |
-
-</div>
-
----
-
-# 🤝 Leadership & Community
-
-* IEEE Student Branch Activities
-* WSO2 / Ballerina Technical Challenges
-* Collaborative Software Engineering Projects
-* Team-based Full Stack Development
-* Technical Project Planning
-* Software Development & Problem Solving
 
 ---
 
 # 🎓 Education
 
-### 🎓 University of Moratuwa
+### University of Moratuwa 🇱🇰
 
 **BSc (Hons) in Information Technology**
 
-🇱🇰 Sri Lanka
+---
+
+# 🏆 Certifications & Activities
+
+* 🥇 CryptX 2.0 — Top Performer
+* 🏅 Innovate with Ballerina — WSO2
+* 📮 Postman API Fundamentals Student Expert
+* 💻 HackerRank Java Basic
+* 🎨 HackerRank CSS Basic
+* 🤝 IEEE Student Activities
+* 🚀 Collaborative Software Engineering Projects
 
 ---
 
-# 💼 Open To Opportunities
+# 💼 Open to Opportunities
 
-I'm interested in internship and early-career opportunities related to:
+I'm interested in opportunities related to:
 
-```text
-💻 Software Engineering
-🌐 Full Stack Development
-⚙️ Backend Engineering
-🤖 AI / ML Engineering
-📊 Data Analytics
-🧠 AI-powered Product Development
-```
+`Software Engineering` · `Full Stack Development` · `Backend Engineering` · `AI/ML` · `Data Analytics`
 
 ---
 
-# 🌐 Connect With Me
+# 🤝 Let's Connect
 
 <div align="center">
 
@@ -604,36 +287,8 @@ I'm interested in internship and early-career opportunities related to:
 <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white">
 </a>
 
-</div>
+<br><br>
 
----
-
-# ⚡ Developer Mindset
-
-<div align="center">
-
-### 💡 Think → Build → Break → Debug → Improve → Ship
-
-<br>
-
-> ## 🚀 "I don't just write code. I build systems that solve real problems."
-
-<br>
-
-### Building today for the problems of tomorrow. 🌍
-
-</div>
-
----
-
-<div align="center">
-
-## ⭐ Thanks for visiting my profile!
-
-### Let's build something meaningful. 🚀
-
-<br>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=120&section=footer">
 
 </div>
