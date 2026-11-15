@@ -1,30 +1,32 @@
 <div align="center">
 
-<!-- Hero Header Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b0f19,30:111827,70:0f172a,100:0284c7&height=250&section=header&text=SATHURJAN%20VIJITHAKUMARASENA&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Software%20Engineer%20%7C%20Full%20Stack%20%26%20Backend%20Architect%20%7C%20Distributed%20Systems&descAlignY=58&descSize=18" width="100%" alt="Header Banner" />
-
-<br/>
-
-<!-- Interactive Profile Links & Badges -->
+<!-- Hero Banner with Custom ASCII Portrait & Cyber Aesthetics -->
 <a href="https://github.com/Sathurjanv23">
-  <img src="https://img.shields.io/badge/GitHub-Sathurjanv23-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  <img src="assets/banner.png" width="100%" alt="Sathurjan Vijithakumarasena - Hero Banner" />
+</a>
+
+<br/><br/>
+
+<!-- Sleek Navigation / Contact Pills -->
+<a href="https://github.com/Sathurjanv23">
+  <img src="https://img.shields.io/badge/%F0%9F%8C%90_Portfolio-%E2%86%97-14151a?style=for-the-badge&logoColor=white" alt="Portfolio" />
 </a>
 &nbsp;
 <a href="https://www.linkedin.com/in/vijithakumarasena-sathurjan">
-  <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  <img src="https://img.shields.io/badge/LinkedIn-%E2%86%97-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
 </a>
 &nbsp;
 <a href="mailto:sathurjanv.dev@gmail.com">
-  <img src="https://img.shields.io/badge/Email-sathurjanv.dev%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  <img src="https://img.shields.io/badge/Email-%E2%86%97-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
 </a>
 &nbsp;
-<img src="https://komarev.com/ghpvc/?username=Sathurjanv23&label=SYSTEM+VISITS&color=0284c7&style=for-the-badge" alt="Profile Views" />
+<img src="https://komarev.com/ghpvc/?username=Sathurjanv23&label=PROFILE+VIEWS&color=f97316&style=for-the-badge" alt="Profile Views" />
 
 <br/><br/>
 
 <!-- Dynamic Terminal Typing Animation -->
 <a href="#-architectural-overview">
-  <img src="https://readme-typing-svg.herokuapp.com/?lines=Software+Engineer+%7C+Enterprise+Backend+Architect;Modular+Monoliths+%7C+Distributed+Systems+%7C+CQRS;ASP.NET+Core+Web+API+(.NET+10)+%7C+Spring+Boot+3;Next.js+14+%7C+React+%7C+TypeScript+%7C+FastAPI;Multi-Tenant+B2B+SaaS+%7C+High-Availability+APIs;Designing+Resilient%2C+Clean-Architecture+Systems&center=true&width=800&height=46&font=JetBrains+Mono&size=18&color=38BDF8&pause=1000" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com/?lines=Full-Stack+Developer+%7C+Enterprise+Backend+Architect;Modular+Monoliths+%7C+Distributed+Systems+%7C+CQRS;ASP.NET+Core+Web+API+(.NET+10)+%7C+Spring+Boot+3;Next.js+14+%7C+React+%7C+TypeScript+%7C+FastAPI;Building+Web+Platforms+%26+Seeing+Them+Through+to+Production&center=true&width=800&height=46&font=JetBrains+Mono&size=18&color=F97316&pause=1000" alt="Typing SVG" />
 </a>
 
 </div>
@@ -235,6 +237,6 @@ I am open to **Software Engineering Opportunities, Backend / Full-Stack Roles, a
 <br/><br/>
 
 <!-- Footer Wave -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b0f19,30:111827,70:0f172a,100:0284c7&height=120&section=footer" width="100%" alt="Footer Banner" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0e12,40:181920,80:272935,100:f97316&height=120&section=footer" width="100%" alt="Footer Banner" />
 
 </div>
