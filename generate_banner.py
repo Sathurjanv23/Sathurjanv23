@@ -386,49 +386,57 @@ def build_header_frame(frame_index, total_frames):
         draw.rectangle([mr_x+5*s+30*s, mr_y+50*s, mr_x+5*s+34*s, mr_y+58*s], fill=(220,180,255,220))
 
     # ── LEFT SIDE TEXT ────────────────────────────────────────────────────────
-    f_name = font(FIMPACT, 86)
-    f_sub  = font(FGOTHICB, 22)
-    f_tag  = font(FCONSOLA, 15)
-    f_tiny = font(FCONSOLA, 13)
+    f_name1 = font(FIMPACT, 72)
+    f_name2 = font(FGOTHICB, 25)
+    f_sub   = font(FGOTHICB, 20)
+    f_tag   = font(FCONSOLA, 14)
+    f_tiny  = font(FCONSOLA, 12)
 
-    # hello_world() label
+    # Architectural telemetry status tag
     code_phase = phase
     code_col = (
         int(190 + 65*math.sin(2*math.pi*code_phase)),
-        int(100 + 50*math.sin(2*math.pi*code_phase + 1)),
-        int(220 + 35*math.sin(2*math.pi*code_phase + 2))
+        int(110 + 50*math.sin(2*math.pi*code_phase + 1)),
+        int(230 + 25*math.sin(2*math.pi*code_phase + 2))
     )
-    draw.text((52, 42), "{ hello_world(); }", font=font(FCONSOLA, 16), fill=code_col)
+    draw.text((52, 38), "{ sys.arch: active; domain: software_engineering; }", font=font(FCONSOLA, 14), fill=code_col)
 
-    # Main name with glow
-    name_text = "SATHURJAN"
-    nb = f_name.getbbox(name_text)
-    name_w = nb[2]-nb[0]
+    # Name Line 1: SATHURJAN
     name_x = 52
-    # Glow layers
-    for gr in [18, 12, 7, 3]:
-        for ddx in range(-gr, gr+1, max(1,gr//3)):
-            for ddy in range(-gr, gr+1, max(1,gr//3)):
+    name_line1 = "SATHURJAN"
+    for gr in [16, 10, 5]:
+        for ddx in range(-gr, gr+1, max(1,gr//2)):
+            for ddy in range(-gr, gr+1, max(1,gr//2)):
                 if abs(ddx)+abs(ddy) <= gr:
-                    draw.text((name_x+ddx, 72+ddy), name_text, font=f_name,
-                              fill=(*P_BRIGHT, max(0,55-gr*2)))
-    draw.text((name_x, 72), name_text, font=f_name, fill=P_LAVEN)
+                    draw.text((name_x+ddx, 62+ddy), name_line1, font=f_name1,
+                              fill=(*P_BRIGHT, max(0,50-gr*3)))
+    draw.text((name_x, 62), name_line1, font=f_name1, fill=P_LAVEN)
 
-    # Subtitle
-    draw.text((54, 170), "SOFTWARE ENGINEERING UNDERGRADUATE", font=f_sub, fill=P_NEON)
-    draw.text((54, 198), "University of Moratuwa  •  Sri Lanka  🇱🇰", font=f_tag, fill=TEXT_DIM)
+    # Name Line 2: VIJITHAKUMARASENA
+    name_line2 = "VIJITHAKUMARASENA"
+    for gr in [8, 4]:
+        for ddx in range(-gr, gr+1, max(1,gr//2)):
+            for ddy in range(-gr, gr+1, max(1,gr//2)):
+                if abs(ddx)+abs(ddy) <= gr:
+                    draw.text((name_x+ddx, 140+ddy), name_line2, font=f_name2,
+                              fill=(*P_MID, 40))
+    draw.text((name_x, 140), name_line2, font=f_name2, fill=P_NEON)
+
+    # Subtitle & University
+    draw.text((54, 178), "SOFTWARE ENGINEERING UNDERGRADUATE", font=f_sub, fill=P_PRIMARY)
+    draw.text((54, 204), "University of Moratuwa  •  Sri Lanka", font=f_tag, fill=TEXT_DIM)
 
     # Animated typewriter on tagline
-    tagline = "BUILD  •  CREATE  •  INNOVATE"
+    tagline = "SOFTWARE ARCHITECTURE  •  FULL-STACK  •  AI & ML"
     chars_shown = int(len(tagline) * min(1.0, (phase * 1.8) % 1.0 + 0.3))
     partial_tag = tagline[:chars_shown]
     cursor_blink = (frame_index // 3) % 2 == 0
     tag_draw = partial_tag + ("▮" if cursor_blink else "▯")
-    draw.text((54, 226), tag_draw, font=f_tag, fill=P_PINK)
+    draw.text((54, 230), tag_draw, font=f_tag, fill=P_PINK)
 
-    # Skill badges row
-    badges = ["Software Eng", "Full Stack", "AI & ML", "Backend", "Open Source"]
-    bx, by = 54, 265
+    # Specializations badges row
+    badges = ["Software Engineering", "Full-Stack Dev", "Backend Systems", "AI & ML"]
+    bx, by = 54, 266
     for i, badge in enumerate(badges):
         bfont = font(FCONSOLA, 12)
         try:
