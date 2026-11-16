@@ -1,845 +1,507 @@
 """
-PURPLE PIXEL UNIVERSE — Complete Artwork Generator
-Creates: header.gif, footer.gif, anime-avatar.png, project thumbnails
+Professional Cyberpunk Purple Pixel Banner Renderer
+Generates elite animated header.gif with pristine typography and flawless aesthetic.
 """
 import math
 import os
 import random
-import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 ASSETS = os.path.join(BASE, "assets")
-PROJECTS = os.path.join(ASSETS, "projects")
-os.makedirs(PROJECTS, exist_ok=True)
+os.makedirs(ASSETS, exist_ok=True)
 
-# ── PALETTE ───────────────────────────────────────────────────────────────────
-BG0         = (8,   7,  17)   # deepest background
-BG1         = (11,  9,  25)
-BG2         = (17, 12,  38)
-BG3         = (26, 18,  58)
-P_DARK      = (40, 20,  90)
-P_MID       = (80, 40, 160)
-P_BRIGHT    = (140, 70, 230)
-P_PRIMARY   = (168, 85, 247)
-P_NEON      = (192,132, 252)
-P_LAVEN     = (233,213, 255)
-P_PINK      = (240,171, 252)
-MOON_COLOR  = (220,195, 255)
-STAR_W      = (255,255,255)
-TEXT_WHITE  = (248,250,252)
-TEXT_DIM    = (161,161,170)
-GOLD        = (255,215, 60)
-CYAN        = ( 56,189,248)
-GREEN_NEO   = ( 74,222,128)
+# ── COLOR PALETTE ─────────────────────────────────────────────────────────────
+BG_DEEP     = (6,   4,  14)     # #06040E
+BG_MID      = (14,  9,  28)     # #0E091C
+BG_VIOLET   = (24, 14,  48)     # #180E30
+P_PRIMARY   = (168, 85, 247)    # #A855F7
+P_NEON      = (192, 132, 252)   # #C084FC
+P_ELECTRIC  = (216, 180, 254)   # #D8B4FE
+P_LAVENDER  = (243, 232, 255)   # #F3E8FF
+P_DARK      = (45,  22,  90)     # #2D165A
+P_BORDER    = (124, 58, 237)    # #7C3AED
+CYAN        = (56, 189, 248)    # #38BDF8
+PINK_NEON   = (244, 114, 182)   # #F472B6
+GREEN_CODE  = (74, 222, 128)    # #4ADE80
+TEXT_WHITE  = (248, 250, 252)   # #F8FAFC
+TEXT_MUTED  = (161, 161, 170)   # #A1A1AA
+TEXT_LILAC  = (216, 180, 254)   # #D8B4FE
 
 # ── FONTS ─────────────────────────────────────────────────────────────────────
-FIMPACT  = "C:/Windows/Fonts/impact.ttf"
-FGOTHICB = "C:/Windows/Fonts/GOTHICB.TTF"
-FGOTHIC  = "C:/Windows/Fonts/GOTHIC.TTF"
-FCONSOLA = "C:/Windows/Fonts/consola.ttf"
-FSEGUI   = "C:/Windows/Fonts/segoeui.ttf"
-FSEGOUB  = "C:/Windows/Fonts/segoeuib.ttf"
+F_IMPACT  = "C:/Windows/Fonts/impact.ttf"
+F_GOTHICB = "C:/Windows/Fonts/GOTHICB.TTF"
+F_GOTHIC  = "C:/Windows/Fonts/GOTHIC.TTF"
+F_CONSOLA = "C:/Windows/Fonts/consola.ttf"
+F_SEGUIB  = "C:/Windows/Fonts/segoeuib.ttf"
+F_SEGUI   = "C:/Windows/Fonts/segoeui.ttf"
 
-def font(path, size):
+def get_font(path, size):
     try:
         return ImageFont.truetype(path, size)
     except:
         return ImageFont.load_default()
 
-# ── HELPERS ───────────────────────────────────────────────────────────────────
-def lerp(a, b, t):
-    return int(a + (b - a) * t)
+def draw_cyber_frame(draw, W, H, phase=0.0):
+    """Draw ornate cyberpunk frame with corner brackets and telemetry tags."""
+    m = 12  # margin
+    glow_alpha = int(140 + 70 * math.sin(2 * math.pi * phase))
+    frame_col = (*P_BORDER[:3], glow_alpha)
+    bracket_col = (*P_NEON[:3], 240)
 
-def lerp3(ca, cb, t):
-    return (lerp(ca[0],cb[0],t), lerp(ca[1],cb[1],t), lerp(ca[2],cb[2],t))
+    # Outer border
+    draw.rounded_rectangle([m, m, W - m, H - m], radius=6, outline=frame_col, width=1)
+    
+    # Corner brackets (L-shapes)
+    blen = 22
+    bthick = 2
+    # Top-Left
+    draw.line([(m, m + blen), (m, m), (m + blen, m)], fill=bracket_col, width=bthick)
+    # Top-Right
+    draw.line([(W - m - blen, m), (W - m, m), (W - m, m + blen)], fill=bracket_col, width=bthick)
+    # Bottom-Left
+    draw.line([(m, H - m - blen), (m, H - m), (m + blen, H - m)], fill=bracket_col, width=bthick)
+    # Bottom-Right
+    draw.line([(W - m - blen, H - m), (W - m, H - m), (W - m, H - m - blen)], fill=bracket_col, width=bthick)
 
-def sky_gradient(draw, W, H, sky_h, top=(8,5,20), mid=(20,10,55), bot=(35,18,90)):
-    for y in range(sky_h):
-        t = y / sky_h
-        if t < 0.5:
-            c = lerp3(top, mid, t*2)
-        else:
-            c = lerp3(mid, bot, (t-0.5)*2)
-        draw.line([(0,y),(W,y)], fill=c)
+    # Corner telemetry micro-text
+    f_micro = get_font(F_CONSOLA, 10)
+    draw.text((m + 28, m + 4), "// SYS.ID: MORA-SE", font=f_micro, fill=(*P_ELECTRIC[:3], 180))
+    draw.text((W - m - 145, m + 4), "ARCH // ACTIVE [OK]", font=f_micro, fill=(*CYAN[:3], 190))
+    draw.text((m + 28, H - m - 14), "LATITUDE: 6.7969° N • LONGITUDE: 79.9018° E", font=f_micro, fill=(*TEXT_MUTED[:3], 140))
+    draw.text((W - m - 120, H - m - 14), "REV 2.8 // BUILD", font=f_micro, fill=(*P_NEON[:3], 170))
 
-def draw_moon(draw, cx, cy, R, pulse=1.0):
-    # outer glow rings
-    for gr in range(int(R*2.5), 0, -4):
-        a = int(28 * (1 - gr/(R*2.5)) * pulse)
-        gc = (max(0,80-gr), max(0,30-gr//2), min(255,120+gr//2))
-        draw.ellipse([cx-gr,cy-gr,cx+gr,cy+gr], fill=gc)
-    # moon disc
-    for dy in range(-R, R+1):
-        for dx in range(-R, R+1):
-            d = math.sqrt(dx*dx+dy*dy)
-            if d <= R:
-                t = 1 - d/R
-                lum = int(170 + 85*t)
-                col = (max(0,lum-30), max(0,lum-100), min(255,lum+15))
-                draw.point((cx+dx, cy+dy), fill=col)
-    # subtle craters
-    for cxr,cyr,cr in [(cx-R//3,cy-R//4,R//6),(cx+R//4,cy+R//3,R//8)]:
-        draw.ellipse([cxr-cr,cyr-cr,cxr+cr,cyr+cr], fill=(140,100,200))
-
-def draw_stars(draw, W, H_sky, seed, n=120, phase=0.0):
+def draw_stars(draw, W, H, seed=101, n=90, phase=0.0):
+    """Draw subtle twinkling stars on the canvas."""
     rng = random.Random(seed)
-    for _ in range(n):
-        sx = rng.randint(5, W-5)
-        sy = rng.randint(5, H_sky-5)
+    for i in range(n):
+        sx = rng.randint(20, W - 20)
+        sy = rng.randint(18, H - 40)
+        # Avoid stars right over the main title
+        if 40 < sx < 550 and 50 < sy < 220:
+            continue
         ph = rng.random()
-        sz = rng.choice([1,1,1,2])
-        t = 0.5 + 0.5*math.sin(2*math.pi*(phase + ph))
-        bri = int(90 + 165*t)
-        col = (bri, bri-10, min(255,bri+30))
-        if sz==1:
-            draw.point((sx,sy), fill=col)
+        t = 0.5 + 0.5 * math.sin(2 * math.pi * (phase + ph))
+        bri = int(80 + 175 * t)
+        col = (bri, max(0, bri - 15), min(255, bri + 30), int(200 * t))
+        
+        # Cross flare for a few bright stars
+        if i % 14 == 0 and t > 0.7:
+            draw.line([(sx - 2, sy), (sx + 2, sy)], fill=col, width=1)
+            draw.line([(sx, sy - 2), (sx, sy + 2)], fill=col, width=1)
         else:
-            draw.rectangle([sx,sy,sx+1,sy+1], fill=col)
+            draw.point((sx, sy), fill=col)
 
-def draw_city(draw, W, ground_y, seed=7):
-    rng = random.Random(seed)
-    x = 0
-    while x < W:
-        bw = rng.randint(28, 70)
-        bh = rng.randint(55, 180)
-        # building body
-        shade = rng.choice([(14,8,32),(18,10,42),(22,13,52),(28,15,65)])
-        draw.rectangle([x, ground_y-bh, x+bw, ground_y], fill=shade)
-        # windows
-        for wy in range(ground_y-bh+8, ground_y-6, 11):
-            for wx in range(x+5, x+bw-5, 10):
-                lit = rng.random()
-                if lit > 0.45:
-                    wc = rng.choice([(220,195,100),(180,140,255),(100,200,255),(255,160,80)])
-                elif lit > 0.2:
-                    wc = (40,25,80)
-                else:
-                    wc = (20,12,38)
-                draw.rectangle([wx,wy,wx+5,wy+6], fill=wc)
-        # rooftop details
-        if bw > 40:
-            draw.rectangle([x+bw//2-2,ground_y-bh-8,x+bw//2+2,ground_y-bh], fill=P_BRIGHT)
-        x += bw + rng.randint(2,8)
+def draw_moon(img, cx, cy, radius, phase=0.0):
+    """Draw vibrant purple anime moon with soft multi-layered glow."""
+    glow_layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    gdraw = ImageDraw.Draw(glow_layer)
 
-def draw_ground_grid(draw, W, H, ground_y):
-    # Neon perspective grid
-    horizon = ground_y
-    vanish_x = W // 2
-    # vertical lines
-    for xi in range(-W, W*2, 48):
-        draw.line([(xi, horizon),(vanish_x + (xi - vanish_x)*3, H)], fill=(30,8,80), width=1)
-    # horizontal lines
-    for frac in [0.1,0.25,0.45,0.65,0.82,1.0]:
-        yi = int(horizon + (H-horizon)*frac)
-        draw.line([(0,yi),(W,yi)], fill=(35,10,90), width=1)
+    pulse = 0.85 + 0.15 * math.sin(2 * math.pi * phase)
+    # Outer diffuse aura
+    for gr in range(int(radius * 2.8), radius, -4):
+        alpha = int(22 * (1.0 - (gr - radius) / (radius * 1.8)) * pulse)
+        gdraw.ellipse([cx - gr, cy - gr, cx + gr, cy + gr], fill=(*P_PRIMARY[:3], alpha))
 
-def draw_glow_text(draw, x, y, text, fnt, main_col, glow_col, glow_r=10):
-    for r in [glow_r, glow_r//2, glow_r//4]:
-        for dx in range(-r, r+1, max(1,r//3)):
-            for dy in range(-r, r+1, max(1,r//3)):
-                if dx==0 and dy==0: continue
-                if abs(dx)+abs(dy) <= r:
-                    draw.text((x+dx,y+dy), text, font=fnt, fill=(*glow_col, 40))
-    draw.text((x,y), text, font=fnt, fill=main_col)
+    # Inner bright corona
+    for gr in range(int(radius * 1.3), radius, -2):
+        alpha = int(45 * (1.0 - (gr - radius) / (radius * 0.3)) * pulse)
+        gdraw.ellipse([cx - gr, cy - gr, cx + gr, cy + gr], fill=(*P_ELECTRIC[:3], alpha))
 
-def draw_pixel_char(draw, cx, cy, scale=1):
-    """Draw a simple pixel-art anime developer character (front-view, seated)."""
-    s = scale
-    # Skin tone
-    skin = (200, 155, 120)
-    skin2 = (180, 130, 95)
-    dark  = (20, 10, 35)
-    hair  = (30, 20, 55)
-    shirt = (60, 30, 120)
-    shirt2= (80, 45, 160)
-    eye_w = (220, 210, 255)
-    eye_p = (140, 80, 255)
-    glow_col = (160, 90, 255)
+    # Moon core disc
+    mdisc = Image.new("RGBA", (radius * 2 + 10, radius * 2 + 10), (0, 0, 0, 0))
+    mdraw = ImageDraw.Draw(mdisc)
+    mcx, mcy = radius + 5, radius + 5
+    for dy in range(-radius, radius + 1):
+        for dx in range(-radius, radius + 1):
+            d = math.sqrt(dx * dx + dy * dy)
+            if d <= radius:
+                t = 1.0 - d / radius
+                lum = int(210 + 45 * t)
+                col = (min(255, lum), max(0, lum - 35), min(255, lum + 20), 255)
+                mdraw.point((mcx + dx, mcy + dy), fill=col)
     
-    def r(x,y,w,h,col): 
-        draw.rectangle([cx+x*s, cy+y*s, cx+(x+w)*s-1, cy+(y+h)*s-1], fill=col)
-    def p(x,y,col):
-        draw.rectangle([cx+x*s,cy+y*s,cx+(x+1)*s-1,cy+(y+1)*s-1], fill=col)
+    # Stylized anime craters
+    for crx, cry, crr in [(mcx - radius // 3, mcy - radius // 4, radius // 5),
+                          (mcx + radius // 3, mcy + radius // 3, radius // 7),
+                          (mcx - radius // 5, mcy + radius // 3, radius // 8)]:
+        mdraw.ellipse([crx - crr, cry - crr, crx + crr, cry + crr], fill=(160, 110, 220, 180))
 
-    # === HAIR (spiky anime) ===
-    # Main hair block
-    r(-6,-16,12,8, hair)
-    # Spikes
-    for sx, sy2, sw, sh in [(-8,-20,3,5),(-5,-22,4,7),(0,-23,4,8),(5,-21,4,6),(8,-18,3,4)]:
-        r(sx,sy2,sw,abs(sh), hair)
-    # Side hair
-    r(-8,-12,3,10, hair)
-    r(5,-12,3,10, hair)
-    
-    # === FACE ===
-    r(-5,-10,10,10, skin)
-    # Cheeks
-    r(-5,-6,2,3, skin2)
-    r(3,-6,2,3, skin2)
-    # Eyes
-    r(-4,-9,3,3, dark)
-    r(1,-9,3,3, dark)
-    r(-3,-8,1,1, eye_w)
-    r(2,-8,1,1, eye_w)
-    r(-3,-9,2,2, eye_p)
-    r(2,-9,2,2, eye_p)
-    # Highlight in eyes
-    r(-3,-9,1,1, (255,240,255))
-    r(2,-9,1,1,  (255,240,255))
-    # Nose
-    r(-1,-6,1,1, skin2)
-    # Mouth (slight smile)
-    r(-2,-4,1,1, skin2)
-    r(-1,-3,4,1, skin2)
-    r(2,-4,1,1, skin2)
-    
-    # Neck
-    r(-2,0,4,3, skin)
-    
-    # === BODY / SHIRT ===
-    r(-8,3,16,12, shirt)
-    r(-8,3,3,12, shirt2)   # left shading
-    r(5,3,3,12, shirt2)    # right shading
-    # Collar
-    r(-2,2,2,4, (40,20,80))
-    r(0,2,2,4, (40,20,80))
-    
-    # Shoulders
-    r(-10,3,2,8, shirt2)
-    r(8,3,2,8, shirt2)
-    
-    # Arms (resting on desk)
-    r(-10,8,4,8, skin)   # left arm
-    r(6,8,4,8, skin)     # right arm
-    
-    # Hands on keyboard
-    r(-10,14,5,4, skin)
-    r(5,14,5,4, skin)
-    
-    # Headphones hint
-    r(-8,-15,2,6, (90,50,180))
-    r(6,-15,2,6, (90,50,180))
-    r(-7,-16,14,2, (90,50,180))
+    glow_layer.paste(mdisc, (cx - mcx, cy - mcy), mdisc)
+    img.alpha_composite(glow_layer)
 
-def draw_desk(draw, cx, cy, W_desk, s=1):
-    """Draw a futuristic pixel-art desk with monitors."""
-    dark_desk = (25, 15, 55)
-    desk_top  = (35, 20, 75)
-    mon_frame = (30, 20, 65)
-    mon_scrn  = (10, 5, 25)
-    glow_grn  = (80, 255, 150)
-    glow_pur  = (160, 80, 255)
-    glow_cya  = (50, 200, 255)
-    
-    def r(x,y,w,h,col):
-        draw.rectangle([x,y,x+w-1,y+h-1], fill=col)
-    
-    # Desk surface
-    r(cx - W_desk//2, cy, W_desk, 8*s, desk_top)
-    r(cx - W_desk//2, cy+8*s, W_desk, 4*s, dark_desk)
-    
-    # Left monitor
-    ml_x = cx - W_desk//2 + 15*s
-    ml_y = cy - 55*s
-    r(ml_x, ml_y, 70*s, 50*s, mon_frame)
-    r(ml_x+3*s, ml_y+3*s, 64*s, 44*s, mon_scrn)
-    # Screen content (code lines)
-    for i, (ly, lc) in enumerate([(6,glow_grn),(12,(100,180,255)),(18,glow_grn),(24,(200,120,255)),(30,glow_grn),(36,(100,180,255))]):
-        lw = random.Random(i*7).randint(20,55)
-        r(ml_x+5*s, ml_y+ly*s, lw*s, 2*s, (*lc[:3], 180))
-    # Monitor glow
-    for gr in range(10,0,-2):
-        draw.rectangle([ml_x-gr, ml_y-gr, ml_x+70*s+gr, ml_y+50*s+gr], outline=glow_cya, width=1)
-    # Monitor stand (removed zero-height rect)
-    # stand already grounded on desk surface
-    
-    # Right monitor (main, larger)
-    mr_x = cx + 10*s
-    mr_y = cy - 70*s
-    r(mr_x, mr_y, 90*s, 65*s, mon_frame)
-    r(mr_x+3*s, mr_y+3*s, 84*s, 59*s, mon_scrn)
-    # Code editor on screen
-    for i, (ly, lc, lw) in enumerate([
-        (5,glow_pur,30),(9,(150,200,255),45),(13,glow_grn,38),(17,(100,170,255),25),
-        (21,glow_pur,42),(25,glow_grn,33),(29,(180,130,255),50),(33,glow_cya,28),
-        (37,glow_pur,38),(41,(100,200,255),44),(45,glow_grn,30),(50,glow_cya,55),
-    ]):
-        r(mr_x+5*s, mr_y+ly*s, lw*s, 2*s, lc)
-    # Blinking cursor block
-    r(mr_x+5*s+30*s, mr_y+50*s, 4*s, 8*s, (220,180,255))
-    # Monitor glow
-    for gr in range(14,0,-2):
-        a_frac = 1 - gr/14
-        gc = (int(80*a_frac), int(30*a_frac), int(160*a_frac))
-        draw.rectangle([mr_x-gr, mr_y-gr, mr_x+90*s+gr, mr_y+65*s+gr], outline=gc, width=1)
-    
-    # Keyboard
-    kb_x = cx - 40*s
-    kb_y = cy + 2*s
-    r(kb_x, kb_y, 80*s, 5*s, (45,28,95))
-    # Key rows
-    for ki in range(8):
-        r(kb_x+ki*9*s+2*s, kb_y+1*s, 7*s, 3*s, (60,38,120))
+def draw_anime_clouds(img, W, H, phase=0.0):
+    """Draw elegant horizontal Japanese anime cloud bands."""
+    cloud_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    cdraw = ImageDraw.Draw(cloud_layer)
 
-    # Small accent items on desk
-    r(cx+W_desk//2-30*s, cy-15*s, 12*s, 15*s, (30,18,65))  # mug
-    r(cx+W_desk//2-28*s, cy-13*s, 8*s, 11*s, (20,100,180))  # mug inside
-    # Steam from mug
-    for si in range(3):
-        r(cx+W_desk//2-26*s+si*3*s, cy-18*s-si*2*s, 1*s, 2*s, (180,180,220))
+    bands = [
+        # (base_y, height, speed_factor, alpha)
+        (55,  18,  0.4, 60),
+        (85,  22, -0.3, 75),
+        (120, 26,  0.5, 90),
+        (150, 20, -0.4, 70),
+    ]
 
+    for cy, ch, spd, a in bands:
+        offset = int(phase * spd * 120) % W
+        # Draw long flowing cloud strip on the right/upper half
+        cx1 = (650 + offset) % (W + 200) - 100
+        cw = 380
+        # Rounded pill shape for anime cloud
+        cdraw.rounded_rectangle([cx1, cy, cx1 + cw, cy + ch], radius=ch // 2,
+                                fill=(*P_DARK[:3], a))
+        # Inner lighter core
+        cdraw.rounded_rectangle([cx1 + 25, cy + 3, cx1 + cw - 25, cy + ch - 3],
+                                radius=(ch - 6) // 2, fill=(*P_PRIMARY[:3], int(a * 0.4)))
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# HEADER GIF — 1200×350
-# ═══════════════════════════════════════════════════════════════════════════════
+    img.alpha_composite(cloud_layer)
 
-def build_header_frame(frame_index, total_frames):
-    W, H = 1200, 350
-    SKY_H = 240
-    GROUND_Y = 240
-    img = Image.new("RGBA", (W, H), (*BG0, 255))
-    draw = ImageDraw.Draw(img)
-    
-    phase = frame_index / total_frames
+def draw_city_skyline(draw, W, H, ground_y=280):
+    """
+    Draw a clean, moody cyberpunk city skyline CONFINED TO THE RIGHT (x > 580).
+    Leaves the left half completely pristine and dark for high-contrast typography!
+    """
+    # Background skyline buildings on right
+    buildings = [
+        # (x, w, h, col_idx)
+        (580,  45, 110, 0),
+        (630,  35, 150, 1),
+        (670,  55, 130, 0),
+        (730,  40, 180, 2),
+        (775,  30, 95,  0),
+        (810,  50, 140, 1),
+        (865,  38, 165, 2),
+        (910,  48, 120, 0),
+        (965,  42, 190, 2),
+        (1015, 36, 110, 0),
+        (1055, 52, 145, 1),
+        (1115, 45, 100, 0),
+        (1165, 35, 135, 1),
+    ]
 
-    # Sky gradient
-    for y in range(SKY_H):
-        t = y / SKY_H
-        c = lerp3(BG0, BG2, t**0.7)
-        draw.line([(0,y),(W,y)], fill=(*c,255))
+    colors = [
+        (18, 10, 36),  # deep shadow purple
+        (26, 14, 52),  # mid purple silhouette
+        (35, 18, 70),  # foreground purple silhouette
+    ]
 
-    # Ground fill
-    for y in range(GROUND_Y, H):
-        t = (y - GROUND_Y) / (H - GROUND_Y)
-        c = lerp3(BG1, BG0, t)
-        draw.line([(0,y),(W,y)], fill=(*c,255))
-
-    # Perspective grid on ground
-    draw_ground_grid(draw, W, H, GROUND_Y)
-
-    # Stars (twinkling)
-    draw_stars(draw, W, SKY_H - 20, seed=1234, n=140, phase=phase)
-
-    # Moon (pulsing glow)
-    pulse = 0.75 + 0.25*math.sin(2*math.pi*phase)
-    draw_moon(draw, 980, 65, 45, pulse)
-
-    # Purple clouds (slow drift)
-    cloud_offset = int(phase * 80) % W
-    for cxi, cyi, cri in [(300,45,30),(500,30,20),(700,55,25),(900,38,18),(200,60,22),(1050,42,16)]:
-        cx_shifted = (cxi - cloud_offset) % W
-        for puff_dx in [-20,-5,10]:
-            cr = cri - abs(puff_dx)//5
-            for gy in range(-cr, cr+1):
-                for gx in range(-cr, cr+1):
-                    d = math.sqrt(gx*gx+gy*gy)
-                    if d <= cr:
-                        t = 1-d/cr
-                        a = int(50*t*(0.6+0.4*pulse))
-                        col = (int(60*t),int(20*t),int(130*t))
-                        draw.point(((cx_shifted+puff_dx+gx)%W, cyi+gy), fill=col)
-
-    # Floating particles
     rng = random.Random(42)
-    for _ in range(55):
-        px = rng.randint(0, W)
-        py = rng.randint(10, SKY_H-10)
-        pphase = rng.random()
-        psize = rng.randint(1,3)
-        t = 0.4 + 0.6*math.sin(2*math.pi*(phase*1.3+pphase))
-        pc = rng.choice([(P_PRIMARY,t),(P_PINK,t),(P_LAVEN,t*0.5)])
-        col,alpha = pc
-        bri = int(alpha*200)
-        if bri > 20:
-            drift_x = int(rng.choice([-1,1]) * 15 * math.sin(2*math.pi*(phase+pphase)))
-            drift_y = int(8 * math.sin(2*math.pi*(phase*0.7+pphase)))
-            ppx = (px + drift_x) % W
-            ppy = max(0, min(SKY_H-1, py + drift_y))
-            if psize == 1:
-                draw.point((ppx, ppy), fill=(*col[:3], bri))
-            else:
-                draw.ellipse([ppx-psize//2, ppy-psize//2, ppx+psize//2, ppy+psize//2],
-                             fill=(*col[:3], bri))
+    for bx, bw, bh, cidx in buildings:
+        by = ground_y - bh
+        bcol = colors[cidx]
+        draw.rectangle([bx, by, bx + bw, ground_y], fill=(*bcol, 255))
+        # Roof antennas
+        if bh > 140:
+            draw.line([(bx + bw // 2, by - 18), (bx + bw // 2, by)], fill=(*P_PRIMARY[:3], 180), width=1)
+            draw.point((bx + bw // 2, by - 19), fill=(*PINK_NEON[:3], 255))
 
-    # City silhouette
-    draw_city(draw, W, GROUND_Y, seed=99)
+        # Windows (subtle, delicate neon dots)
+        for wy in range(by + 10, ground_y - 12, 14):
+            for wx in range(bx + 6, bx + bw - 6, 8):
+                if rng.random() > 0.55:
+                    wcol = rng.choice([
+                        (*P_ELECTRIC[:3], 180),
+                        (*CYAN[:3], 190),
+                        (*PINK_NEON[:3], 170),
+                        (255, 235, 150, 190),
+                    ])
+                    draw.rectangle([wx, wy, wx + 3, wy + 5], fill=wcol)
 
-    # ── DESK SCENE (centered right half) ──────────────────────────────────────
-    char_cx = 820
-    char_cy = GROUND_Y - 20
-    s = 2  # scale factor
+def draw_developer_workspace(draw, W, H, phase=0.0):
+    """Draw futuristic developer workstation on the right (x=900 to 1120)."""
+    dx = 910
+    dy = 205
 
-    draw_desk(draw, char_cx, char_cy, 220, s)
-    draw_pixel_char(draw, char_cx, char_cy - 2*s, s)
+    # 1. Main Curved Ultra-wide Monitor
+    mw, mh = 145, 82
+    draw.rounded_rectangle([dx, dy, dx + mw, dy + mh], radius=5, fill=(10, 6, 22), outline=(*P_PRIMARY[:3], 200), width=1)
+    
+    # Code editor syntax lines on main screen
+    code_colors = [CYAN, P_NEON, GREEN_CODE, PINK_NEON, P_LAVENDER, CYAN, P_PRIMARY]
+    rng = random.Random(88)
+    for i in range(7):
+        ly = dy + 10 + i * 9
+        lx = dx + 12
+        # Indents
+        indent = (i % 3) * 12
+        line_w = rng.randint(45, 95)
+        col = code_colors[i % len(code_colors)]
+        draw.line([(lx + indent, ly), (lx + indent + line_w, ly)], fill=(*col[:3], 220), width=2)
+    
+    # Blinking cursor on terminal
+    if int(phase * 12) % 2 == 0:
+        draw.rectangle([dx + 12, dy + 70, dx + 18, dy + 76], fill=(*P_ELECTRIC[:3], 255))
 
-    # Scanline on character (subtle retro)
-    if frame_index % 3 == 0:
-        for scan_y in range(char_cy - 85*s, char_cy + 20*s, 4):
-            if 0 <= scan_y < H:
-                draw.line([(char_cx - 120, scan_y),(char_cx + 120, scan_y)], fill=(0,0,0,30))
+    # 2. Secondary Vertical Monitor on Left
+    sw, sh = 52, 92
+    sx = dx - 60
+    sy = dy - 6
+    draw.rounded_rectangle([sx, sy, sx + sw, sy + sh], radius=4, fill=(10, 6, 22), outline=(*P_BORDER[:3], 170), width=1)
+    
+    # Vertical architecture node graph / telemetry
+    for i in range(5):
+        ny = sy + 14 + i * 15
+        draw.rectangle([sx + 8, ny, sx + sw - 8, ny + 8], fill=(*P_DARK[:3], 200))
+        draw.line([(sx + 14, ny + 4), (sx + sw - 14, ny + 4)], fill=(*CYAN[:3], 180), width=1)
 
-    # Blinking cursor on big monitor (alternating frames)
-    mr_x = char_cx + 10*s
-    mr_y = char_cy - 70*s
-    if (frame_index // 4) % 2 == 0:
-        draw.rectangle([mr_x+5*s+30*s, mr_y+50*s, mr_x+5*s+34*s, mr_y+58*s], fill=(220,180,255,220))
+    # 3. Desk Surface with Neon Underglow
+    desk_y = dy + mh + 12
+    draw.rectangle([dx - 80, desk_y, dx + mw + 40, desk_y + 12], fill=(16, 10, 32))
+    # Ambient desk glow strip
+    draw.line([(dx - 80, desk_y), (dx + mw + 40, desk_y)], fill=(*P_NEON[:3], 240), width=2)
+    for gr in [2, 4]:
+        draw.line([(dx - 80, desk_y + gr), (dx + mw + 40, desk_y + gr)], fill=(*P_PRIMARY[:3], 120 // gr), width=1)
 
-    # ── LEFT SIDE TEXT ────────────────────────────────────────────────────────
-    f_name1 = font(FIMPACT, 72)
-    f_name2 = font(FGOTHICB, 25)
-    f_sub   = font(FGOTHICB, 20)
-    f_tag   = font(FCONSOLA, 14)
-    f_tiny  = font(FCONSOLA, 12)
+    # 4. Developer Character (Silhouette / Anime Back View)
+    cx = dx + mw // 2 - 12
+    cy = desk_y - 20
+    # Head & Headphones
+    draw.ellipse([cx, cy - 26, cx + 24, cy - 2], fill=(22, 14, 44))
+    # Hair spikes
+    draw.polygon([(cx + 2, cy - 20), (cx + 6, cy - 34), (cx + 12, cy - 24)], fill=(15, 8, 30))
+    draw.polygon([(cx + 10, cy - 24), (cx + 18, cy - 35), (cx + 22, cy - 20)], fill=(15, 8, 30))
+    # Headphones band & earcups
+    draw.arc([cx - 2, cy - 28, cx + 26, cy - 4], start=180, end=0, fill=(*P_NEON[:3], 240), width=2)
+    draw.ellipse([cx - 4, cy - 18, cx, cy - 6], fill=(*CYAN[:3], 240))
+    draw.ellipse([cx + 24, cy - 18, cx + 28, cy - 6], fill=(*CYAN[:3], 240))
+    # Torso (Hoodie / Jacket)
+    draw.rounded_rectangle([cx - 14, cy - 2, cx + 38, cy + 24], radius=6, fill=(30, 16, 60))
+    draw.line([(cx + 12, cy), (cx + 12, cy + 24)], fill=(*P_PRIMARY[:3], 200), width=1)
 
-    # Architectural telemetry status tag
+def render_frame(fi, total_frames):
+    W, H = 1200, 350
+    phase = fi / total_frames
+
+    # Base Canvas with Deep Gradient
+    img = Image.new("RGBA", (W, H), (*BG_DEEP, 255))
+    draw = ImageDraw.Draw(img)
+
+    # 1. Sky Gradient (Vertical)
+    for y in range(H):
+        t = y / H
+        r = int(BG_DEEP[0] + (BG_VIOLET[0] - BG_DEEP[0]) * (t**0.75))
+        g = int(BG_DEEP[1] + (BG_VIOLET[1] - BG_DEEP[1]) * (t**0.75))
+        b = int(BG_DEEP[2] + (BG_VIOLET[2] - BG_DEEP[2]) * (t**0.75))
+        draw.line([(0, y), (W, y)], fill=(r, g, b, 255))
+
+    # 2. Left Side Pristine Dark Backdrop (Vignette)
+    # Ensures 100% contrast behind typography
+    for x in range(650):
+        t = x / 650
+        alpha = int(220 * (1.0 - t**1.4))
+        draw.line([(x, 0), (x, H)], fill=(*BG_DEEP[:3], alpha))
+
+    # 3. Ground Perspective Grid at Bottom (y: 280 -> 350)
+    for gy in range(280, H, 14):
+        draw.line([(0, gy), (W, gy)], fill=(*P_BORDER[:3], 35), width=1)
+    for gx in range(0, W, 40):
+        draw.line([(gx, 280), (int(gx * 1.15) - 80, H)], fill=(*P_BORDER[:3], 25), width=1)
+
+    # 4. Celestial Elements: Stars & Moon
+    draw_stars(draw, W, H, seed=777, n=110, phase=phase)
+    draw_moon(img, cx=1060, cy=72, radius=44, phase=phase)
+
+    # Re-acquire draw after composite
+    draw = ImageDraw.Draw(img)
+
+    # 5. Stylized Anime Clouds
+    draw_anime_clouds(img, W, H, phase=phase)
+    draw = ImageDraw.Draw(img)
+
+    # 6. City Skyline (Right side only)
+    draw_city_skyline(draw, W, H, ground_y=280)
+
+    # 7. Developer Workstation
+    draw_developer_workspace(draw, W, H, phase=phase)
+
+    # 8. Cyberpunk Frame & Telemetry
+    draw_cyber_frame(draw, W, H, phase=phase)
+
+    # ── TYPOGRAPHY: PRISTINE, HIGH-CONTRAST & CRISP ────────────────────────────
+    # Fonts
+    f_sys     = get_font(F_CONSOLA, 13)
+    f_name1   = get_font(F_IMPACT, 70)
+    f_name2   = get_font(F_GOTHICB, 24)
+    f_role    = get_font(F_GOTHICB, 18)
+    f_campus  = get_font(F_CONSOLA, 14)
+    f_tagline = get_font(F_CONSOLA, 13)
+    f_badge   = get_font(F_CONSOLA, 11)
+
+    # Line 1: IDE Terminal Code Prompt
     code_phase = phase
-    code_col = (
-        int(190 + 65*math.sin(2*math.pi*code_phase)),
-        int(110 + 50*math.sin(2*math.pi*code_phase + 1)),
-        int(230 + 25*math.sin(2*math.pi*code_phase + 2))
+    col_code = (
+        int(190 + 55 * math.sin(2 * math.pi * code_phase)),
+        int(130 + 40 * math.sin(2 * math.pi * code_phase + 1)),
+        int(240 + 15 * math.sin(2 * math.pi * code_phase + 2))
     )
-    draw.text((52, 38), "{ sys.arch: active; domain: software_engineering; }", font=font(FCONSOLA, 14), fill=code_col)
+    draw.text((54, 34), "> system.initialize(domain=\"software_engineering\");", font=f_sys, fill=col_code)
 
-    # Name Line 1: SATHURJAN
-    name_x = 52
-    name_line1 = "SATHURJAN"
-    for gr in [16, 10, 5]:
-        for ddx in range(-gr, gr+1, max(1,gr//2)):
-            for ddy in range(-gr, gr+1, max(1,gr//2)):
-                if abs(ddx)+abs(ddy) <= gr:
-                    draw.text((name_x+ddx, 62+ddy), name_line1, font=f_name1,
-                              fill=(*P_BRIGHT, max(0,50-gr*3)))
-    draw.text((name_x, 62), name_line1, font=f_name1, fill=P_LAVEN)
+    # Line 2: First Name SATHURJAN with Smooth Neon Drop-Shadow
+    tx, ty = 54, 58
+    # Subtle diffuse glow behind text (not blocky!)
+    for off_x, off_y, a in [(-2, 0, 90), (2, 0, 90), (0, -2, 90), (0, 2, 90), (0, 0, 160)]:
+        draw.text((tx + off_x, ty + off_y), "SATHURJAN", font=f_name1, fill=(*P_PRIMARY[:3], a))
+    # Crisp foreground text
+    draw.text((tx, ty), "SATHURJAN", font=f_name1, fill=P_LAVENDER)
 
-    # Name Line 2: VIJITHAKUMARASENA
-    name_line2 = "VIJITHAKUMARASENA"
-    for gr in [8, 4]:
-        for ddx in range(-gr, gr+1, max(1,gr//2)):
-            for ddy in range(-gr, gr+1, max(1,gr//2)):
-                if abs(ddx)+abs(ddy) <= gr:
-                    draw.text((name_x+ddx, 140+ddy), name_line2, font=f_name2,
-                              fill=(*P_MID, 40))
-    draw.text((name_x, 140), name_line2, font=f_name2, fill=P_NEON)
+    # Line 3: Surname VIJITHAKUMARASENA
+    ty_last = ty + 74
+    draw.text((tx + 2, ty_last), "VIJITHAKUMARASENA", font=f_name2, fill=P_NEON)
 
-    # Subtitle & University
-    draw.text((54, 178), "SOFTWARE ENGINEERING UNDERGRADUATE", font=f_sub, fill=P_PRIMARY)
-    draw.text((54, 204), "University of Moratuwa  •  Sri Lanka", font=f_tag, fill=TEXT_DIM)
+    # Line 4: Role & Specialization Subtitle
+    ty_role = ty_last + 34
+    draw.text((tx + 2, ty_role), "SOFTWARE ENGINEERING UNDERGRADUATE", font=f_role, fill=P_ELECTRIC)
 
-    # Animated typewriter on tagline
-    tagline = "SOFTWARE ARCHITECTURE  •  FULL-STACK  •  AI & ML"
-    chars_shown = int(len(tagline) * min(1.0, (phase * 1.8) % 1.0 + 0.3))
-    partial_tag = tagline[:chars_shown]
-    cursor_blink = (frame_index // 3) % 2 == 0
-    tag_draw = partial_tag + ("▮" if cursor_blink else "▯")
-    draw.text((54, 230), tag_draw, font=f_tag, fill=P_PINK)
+    # Line 5: University of Moratuwa | Sri Lanka
+    ty_campus = ty_role + 26
+    draw.text((tx + 2, ty_campus), "University of Moratuwa  •  Sri Lanka  🇱🇰", font=f_campus, fill=TEXT_LILAC)
 
-    # Specializations badges row
-    badges = ["Software Engineering", "Full-Stack Dev", "Backend Systems", "AI & ML"]
-    bx, by = 54, 266
-    for i, badge in enumerate(badges):
-        bfont = font(FCONSOLA, 12)
-        try:
-            bb = bfont.getbbox(badge)
-            bw = bb[2]-bb[0]+18
-        except:
-            bw = len(badge)*7+18
+    # Line 6: Typewriter Tagline with Blinking Cursor
+    ty_tag = ty_campus + 26
+    tag_full = "BUILD  •  ARCHITECT  •  INNOVATE"
+    chars = int(len(tag_full) * min(1.0, (phase * 1.6) % 1.0 + 0.35))
+    tag_sub = tag_full[:chars]
+    cursor = "▮" if int(phase * 12) % 2 == 0 else "▯"
+    draw.text((tx + 2, ty_tag), f"{tag_sub} {cursor}", font=f_tagline, fill=PINK_NEON)
+
+    # Line 7: Premium Dark Pill Badges
+    badges = ["Software Engineering", "Full-Stack Dev", "Backend Architecture", "AI & ML"]
+    bx = tx + 2
+    by = ty_tag + 28
+    for i, btext in enumerate(badges):
+        bw = len(btext) * 7 + 18
         bh = 22
-        # Glow
-        b_phase = 0.3 + 0.7*math.sin(2*math.pi*(phase + i*0.18))
-        b_glow = (int(50*b_phase), int(15*b_phase), int(100*b_phase))
-        for gr in [4,2]:
-            draw.rounded_rectangle([bx-gr,by-gr,bx+bw+gr,by+bh+gr], radius=5, outline=(*P_MID,100), width=1)
-        draw.rounded_rectangle([bx,by,bx+bw,by+bh], radius=4,
-                               fill=(20,8,48), outline=(*P_PRIMARY,220), width=1)
-        draw.text((bx+9, by+4), badge, font=bfont, fill=P_LAVEN)
+        # Pill background
+        draw.rounded_rectangle([bx, by, bx + bw, by + bh], radius=4,
+                               fill=(18, 10, 36, 230), outline=(*P_PRIMARY[:3], 200), width=1)
+        draw.text((bx + 9, by + 4), btext, font=f_badge, fill=P_LAVENDER)
         bx += bw + 8
-
-    # Bottom border glow line
-    glow_alpha = int(120 + 80*math.sin(2*math.pi*phase))
-    draw.line([(0, H-3),(W, H-3)], fill=(*P_PRIMARY, glow_alpha), width=2)
-    draw.line([(0, H-1),(W, H-1)], fill=(*P_MID, 60), width=1)
 
     return img.convert("RGB")
 
-
-def generate_header(total_frames=36):
-    print("Generating HEADER GIF...")
+def generate_header_gif(total_frames=36):
+    print(f"Generating Professional Header GIF ({total_frames} frames)...")
     frames = []
     for fi in range(total_frames):
-        f = build_header_frame(fi, total_frames)
+        f = render_frame(fi, total_frames)
         frames.append(f)
-        if fi % 6 == 0: print(f"  frame {fi+1}/{total_frames}")
+        if fi % 6 == 0:
+            print(f"  frame {fi + 1}/{total_frames}")
 
-    out = os.path.join(ASSETS, "header.gif")
-    # Quantize each frame for GIF
-    q_frames = [f.quantize(colors=180, dither=Image.Dither.FLOYDSTEINBERG) for f in frames]
+    out_gif = os.path.join(ASSETS, "header.gif")
+    out_png = os.path.join(ASSETS, "header_preview.png")
+
+    # Save static preview of frame 0
+    frames[0].save(out_png, format="PNG")
+    print(f"Saved preview: {out_png}")
+
+    # Quantize and save GIF
+    q_frames = [f.quantize(colors=192, dither=Image.Dither.FLOYDSTEINBERG) for f in frames]
     q_frames[0].save(
-        out, save_all=True, append_images=q_frames[1:],
-        optimize=True, duration=65, loop=0
+        out_gif,
+        save_all=True,
+        append_images=q_frames[1:],
+        optimize=True,
+        duration=65,
+        loop=0
     )
-    print(f"  → {out}  ({os.path.getsize(out)//1024} KB)")
-    # Static preview
-    frames[0].save(os.path.join(ASSETS, "header_preview.png"), format="PNG")
+    print(f"Saved GIF: {out_gif} ({os.path.getsize(out_gif) // 1024} KB)")
 
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# FOOTER GIF — 1200×160
-# ═══════════════════════════════════════════════════════════════════════════════
-
-def build_footer_frame(fi, total):
+def render_footer_frame(fi, total_frames):
     W, H = 1200, 160
-    phase = fi / total
-    img = Image.new("RGB", (W, H), BG0)
+    phase = fi / total_frames
+
+    img = Image.new("RGBA", (W, H), (*BG_DEEP, 255))
     draw = ImageDraw.Draw(img)
 
-    # Sky section (top 110px)
-    for y in range(110):
-        t = y / 110
-        c = lerp3(BG0, BG2, t)
-        draw.line([(0,y),(W,y)], fill=c)
-
-    # Ground section
-    for y in range(110, H):
-        t = (y-110)/(H-110)
-        c = lerp3(BG2, BG0, t)
-        draw.line([(0,y),(W,y)], fill=c)
-
-    # Stars
-    draw_stars(draw, W, 100, 5555, n=70, phase=phase)
-
-    # Moon (smaller, right)
-    pulse = 0.8 + 0.2*math.sin(2*math.pi*phase)
-    draw_moon(draw, 1050, 40, 28, pulse)
-
-    # City
-    draw_city(draw, W, 110, seed=42)
-
-    # Closing text
-    f_msg = font(FSEGOUB, 20)
-    f_msg2= font(FCONSOLA, 13)
-    msg = "Keep Building.  Keep Learning.  Keep Growing."
-    try:
-        mb = f_msg.getbbox(msg)
-        mw = mb[2]-mb[0]
-    except:
-        mw = len(msg)*12
-    mx = (W - mw) // 2
-    # Glow
-    glow_a = 0.6 + 0.4*math.sin(2*math.pi*phase)
-    for gr in [8,4,2]:
-        draw.text((mx-gr, 20-gr//2), msg, font=f_msg, fill=(*P_MID, int(60*glow_a)))
-    draw.text((mx, 20), msg, font=f_msg, fill=P_LAVEN)
-
-    sub = "— Sathurjan  |  github.com/Sathurjanv23"
-    try:
-        sb = f_msg2.getbbox(sub)
-        sw = sb[2]-sb[0]
-    except:
-        sw = len(sub)*8
-    sx = (W - sw) // 2
-    draw.text((sx, 50), sub, font=f_msg2, fill=TEXT_DIM)
-
-    # Bottom neon line
-    glow_a2 = int(100 + 80*math.sin(2*math.pi*phase))
-    draw.line([(0,H-3),(W,H-3)], fill=(*P_PRIMARY, glow_a2), width=2)
-
-    return img
-
-
-def generate_footer(total_frames=24):
-    print("Generating FOOTER GIF...")
-    frames = [build_footer_frame(fi, total_frames) for fi in range(total_frames)]
-    q_frames = [f.quantize(colors=120, dither=Image.Dither.FLOYDSTEINBERG) for f in frames]
-    out = os.path.join(ASSETS, "footer.gif")
-    q_frames[0].save(out, save_all=True, append_images=q_frames[1:],
-                     optimize=True, duration=80, loop=0)
-    print(f"  → {out}  ({os.path.getsize(out)//1024} KB)")
-
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# ANIME AVATAR — 400×400
-# ═══════════════════════════════════════════════════════════════════════════════
-
-def generate_anime_avatar():
-    print("Generating ANIME AVATAR...")
-    W = H = 400
-    img = Image.new("RGBA", (W, H), (0,0,0,0))
-    draw = ImageDraw.Draw(img)
-
-    # Circular background
-    for r in range(190, 0, -2):
-        t = 1 - r/190
-        c = lerp3(BG1, P_DARK, t)
-        a = 255
-        draw.ellipse([W//2-r, H//2-r, W//2+r, H//2+r], fill=(*c,a))
-
-    # Ring border
-    for rr in [192,196,198,200]:
-        draw.ellipse([W//2-rr, H//2-rr, W//2+rr, H//2+rr], outline=(*P_PRIMARY, 220), width=2)
-
-    # Character (larger)
-    draw_pixel_char(draw, W//2, H//2+40, scale=5)
-
-    # Overlay glow
-    overlay = Image.new("RGBA", (W,H), (0,0,0,0))
-    odraw = ImageDraw.Draw(overlay)
-    odraw.ellipse([W//2-190, H//2-190, W//2+190, H//2+190], fill=(*P_PRIMARY,15))
-    img = Image.alpha_composite(img, overlay)
-
-    out = os.path.join(ASSETS, "anime-avatar.png")
-    img.save(out, format="PNG")
-    print(f"  → {out}")
-
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# PROJECT THUMBNAILS — 480×260
-# ═══════════════════════════════════════════════════════════════════════════════
-
-def project_thumb_base(W=480, H=260, bg=BG1):
-    img = Image.new("RGB", (W,H), bg)
-    draw = ImageDraw.Draw(img)
-    # Gradient bg
+    # 1. Sky Gradient
     for y in range(H):
-        t = y/H
-        c = lerp3(BG0, BG2, t)
-        draw.line([(0,y),(W,y)], fill=c)
-    # Dot grid
-    for x in range(16, W-16, 20):
-        for y in range(16, H-16, 20):
-            draw.point((x,y), fill=(40,20,80))
-    return img, draw
+        t = y / H
+        r = int(BG_DEEP[0] + (BG_VIOLET[0] - BG_DEEP[0]) * (t**0.8))
+        g = int(BG_DEEP[1] + (BG_VIOLET[1] - BG_DEEP[1]) * (t**0.8))
+        b = int(BG_DEEP[2] + (BG_VIOLET[2] - BG_DEEP[2]) * (t**0.8))
+        draw.line([(0, y), (W, y)], fill=(r, g, b, 255))
 
+    # 2. Stars
+    draw_stars(draw, W, H - 40, seed=999, n=60, phase=phase)
 
-def draw_thumb_label(draw, W, H, title, stack, icon="🏗️"):
-    f_title = font(FGOTHICB, 22)
-    f_stack = font(FCONSOLA, 12)
-    f_icon  = font(FSEGUI,   30)
+    # 3. Small Moon on Right
+    draw_moon(img, cx=1080, cy=42, radius=24, phase=phase)
+    draw = ImageDraw.Draw(img)
 
-    # Title background
-    draw.rectangle([0, H-70, W, H], fill=(10,5,25))
-    draw.line([(0,H-70),(W,H-70)], fill=P_MID, width=1)
+    # 4. Skyline silhouette along bottom
+    skyline_pts = [
+        (0, 120), (50, 95), (90, 120), (140, 85), (200, 120),
+        (260, 100), (310, 120), (370, 90), (430, 120), (500, 95),
+        (560, 120), (620, 85), (680, 120), (740, 100), (800, 120),
+        (860, 90), (920, 120), (980, 85), (1040, 120), (1100, 95),
+        (1160, 120), (1200, 120)
+    ]
+    # Draw silhouette
+    draw.polygon([(0, H)] + skyline_pts + [(W, H)], fill=(16, 9, 32))
+    draw.line(skyline_pts, fill=(*P_BORDER[:3], 180), width=1)
 
-    # Icon circle
-    draw.ellipse([18,H-62,56,H-24], fill=P_DARK, outline=P_PRIMARY, width=1)
-    draw.text((22, H-58), icon, font=f_icon, fill=P_LAVEN)
+    # 5. Cyber frame & corner brackets
+    m = 8
+    glow_alpha = int(130 + 60 * math.sin(2 * math.pi * phase))
+    draw.rounded_rectangle([m, m, W - m, H - m], radius=4, outline=(*P_BORDER[:3], glow_alpha), width=1)
+    # Brackets
+    blen = 14
+    draw.line([(m, m + blen), (m, m), (m + blen, m)], fill=(*P_NEON[:3], 220), width=2)
+    draw.line([(W - m - blen, m), (W - m, m), (W - m, m + blen)], fill=(*P_NEON[:3], 220), width=2)
+    draw.line([(m, H - m - blen), (m, H - m), (m + blen, H - m)], fill=(*P_NEON[:3], 220), width=2)
+    draw.line([(W - m - blen, H - m), (W - m, H - m), (W - m, H - m - blen)], fill=(*P_NEON[:3], 220), width=2)
 
-    # Title
-    draw.text((65, H-62), title, font=f_title, fill=P_LAVEN)
-    # Stack
-    draw.text((66, H-36), stack, font=f_stack, fill=TEXT_DIM)
+    # 6. Centered Closing Message with diffuse glow
+    f_msg1 = get_font(F_GOTHICB, 18)
+    f_msg2 = get_font(F_CONSOLA, 12)
 
-    # Glow border on card
-    for gr in [4,2]:
-        draw.rounded_rectangle([gr,gr,W-gr,H-gr], radius=10, outline=(*P_PRIMARY, 80//gr), width=1)
-    draw.rounded_rectangle([0,0,W-1,H-1], radius=10, outline=(*P_PRIMARY,160), width=2)
+    msg1 = "Keep Building.  Keep Learning.  Keep Growing."
+    try:
+        bbox1 = f_msg1.getbbox(msg1)
+        w1 = bbox1[2] - bbox1[0]
+    except:
+        w1 = len(msg1) * 11
+    x1 = (W - w1) // 2
+    y1 = 52
 
+    # Glow
+    for ddx, ddy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        draw.text((x1 + ddx, y1 + ddy), msg1, font=f_msg1, fill=(*P_PRIMARY[:3], 120))
+    draw.text((x1, y1), msg1, font=f_msg1, fill=P_LAVENDER)
 
-def gen_project_01_reqtrace():
-    """ReqTrace AI — neural net / requirement nodes aesthetic"""
-    W, H = 480, 260
-    img, draw = project_thumb_base(W,H)
+    msg2 = "SATHURJAN VIJITHAKUMARASENA  //  SOFTWARE ENGINEERING UNDERGRADUATE  •  UNIVERSITY OF MORATUWA"
+    try:
+        bbox2 = f_msg2.getbbox(msg2)
+        w2 = bbox2[2] - bbox2[0]
+    except:
+        w2 = len(msg2) * 7
+    x2 = (W - w2) // 2
+    y2 = y1 + 32
+    draw.text((x2, y2), msg2, font=f_msg2, fill=(*P_ELECTRIC[:3], 200))
 
-    # Node network (AI brain style)
-    rng = random.Random(1)
-    nodes = [(rng.randint(60,W-60), rng.randint(40,H-90)) for _ in range(18)]
-    # Connections
-    for i, (nx,ny) in enumerate(nodes):
-        for j, (mx,my) in enumerate(nodes):
-            if i<j and math.sqrt((nx-mx)**2+(ny-my)**2) < 110:
-                col = (40,15,90)
-                draw.line([(nx,ny),(mx,my)], fill=col, width=1)
-    # Node dots with glow
-    cols = [P_PRIMARY, P_PINK, P_NEON, CYAN]
-    for i,(nx,ny) in enumerate(nodes):
-        col = cols[i%len(cols)]
-        for gr in [10,6,3]:
-            draw.ellipse([nx-gr,ny-gr,nx+gr,ny+gr], fill=(*col[:3],40//gr*10))
-        draw.ellipse([nx-5,ny-5,nx+5,ny+5], fill=col)
+    return img.convert("RGB")
 
-    # Central AI eye
-    cx,cy = W//2, (H-70)//2+5
-    for gr in range(45,0,-3):
-        t=1-gr/45
-        col=lerp3(BG0,P_MID,t)
-        draw.ellipse([cx-gr,cy-gr,cx+gr,cy+gr], fill=col)
-    # Iris
-    for gr in range(20,0,-2):
-        t=1-gr/20
-        col=lerp3(P_MID,P_PRIMARY,t)
-        draw.ellipse([cx-gr,cy-gr,cx+gr,cy+gr], fill=col)
-    draw.ellipse([cx-6,cy-6,cx+6,cy+6], fill=P_LAVEN)
-    draw.ellipse([cx-2,cy-2,cx+2,cy+2], fill=(255,255,255))
+def generate_footer_gif(total_frames=24):
+    print(f"Generating Professional Footer GIF ({total_frames} frames)...")
+    frames = []
+    for fi in range(total_frames):
+        f = render_footer_frame(fi, total_frames)
+        frames.append(f)
 
-    # PROJECT label
-    draw.text((18,18), "PROJECT  /  01", font=font(FCONSOLA,12), fill=TEXT_DIM)
-
-    draw_thumb_label(draw, W, H, "ReqTrace AI", "Java  •  Spring Boot  •  MongoDB  •  React  •  AI", "🤖")
-    out = os.path.join(PROJECTS, "project-01.png")
-    img.save(out)
-    print(f"  → {out}")
-
-
-def gen_project_02_iws():
-    """IWS.LK — geospatial map / workforce matching"""
-    W, H = 480, 260
-    img, draw = project_thumb_base(W,H)
-
-    # Map hexagon grid
-    rng = random.Random(2)
-    HEX_R = 22
-    for row in range(8):
-        for col in range(14):
-            hx = col * HEX_R * 1.75 + (HEX_R if row%2 else 0)
-            hy = row * HEX_R * 1.52
-            # hex outline
-            pts = []
-            for ang in range(0,360,60):
-                a = math.radians(ang)
-                pts.append((hx+HEX_R*0.9*math.cos(a), hy+HEX_R*0.9*math.sin(a)))
-            # fill based on activity
-            prob = rng.random()
-            if prob > 0.75:
-                fcol = (*P_MID, 180)
-                draw.polygon(pts, fill=fcol, outline=(*P_PRIMARY,100))
-            elif prob > 0.5:
-                draw.polygon(pts, fill=(*BG2, 180), outline=(30,15,70))
-            else:
-                draw.polygon(pts, fill=(*BG1, 180), outline=(20,10,50))
-
-    # Location pins
-    pin_locs = [(180,80),(260,110),(340,70),(200,145),(310,140)]
-    for px,py in pin_locs:
-        for gr in [12,7,3]:
-            draw.ellipse([px-gr,py-gr,px+gr,py+gr], fill=(*P_PINK[:3],30+gr*8))
-        draw.ellipse([px-5,py-5,px+5,py+5], fill=P_PINK)
-        # pin stem
-        draw.line([(px,py+5),(px,py+14)], fill=P_PINK, width=2)
-    # connection lines
-    for i,(px,py) in enumerate(pin_locs):
-        for qx,qy in pin_locs[i+1:i+2]:
-            draw.line([(px,py),(qx,qy)], fill=(*P_PRIMARY,80), width=1)
-
-    draw.text((18,18), "PROJECT  /  02", font=font(FCONSOLA,12), fill=TEXT_DIM)
-    draw_thumb_label(draw, W, H, "IWS.LK", "FastAPI  •  Python  •  React  •  MongoDB  •  ML", "🌐")
-    out = os.path.join(PROJECTS, "project-02.png")
-    img.save(out)
-    print(f"  → {out}")
-
-
-def gen_project_03_crms():
-    """CRMS — Kanban board / workflow dashboard"""
-    W, H = 480, 260
-    img, draw = project_thumb_base(W,H)
-
-    # Kanban columns
-    columns = [("TODO","#5B21B6",(90,35,180)), ("IN PROGRESS","#9333EA",(147,51,234)), ("REVIEW","#EC4899",(236,72,153)), ("DONE","#10B981",(16,185,129))]
-    col_w = 90
-    for ci,(label,hx,col_rgb) in enumerate(columns):
-        cx = 45 + ci*(col_w+18)
-        # Column header
-        draw.rectangle([cx, 25, cx+col_w, 50], fill=(*col_rgb,180))
-        draw.text((cx+6, 32), label, font=font(FCONSOLA,10), fill=(240,230,255))
-        # Cards
-        rng2 = random.Random(ci*17)
-        cards_n = rng2.randint(2,4)
-        for card_i in range(cards_n):
-            cy_card = 58 + card_i * 38
-            if cy_card + 32 < H - 75:
-                draw.rectangle([cx+2, cy_card, cx+col_w-2, cy_card+30], fill=(20,10,45))
-                draw.rectangle([cx+2, cy_card, cx+col_w-2, cy_card+4], fill=col_rgb)
-                draw.rectangle([cx+6, cy_card+8, cx+6+rng2.randint(30,65), cy_card+11], fill=(60,30,120))
-                draw.rectangle([cx+6, cy_card+16, cx+6+rng2.randint(20,55), cy_card+19], fill=(40,20,80))
-
-    # Corner role badge
-    for role,ry,rcol in [("Client",8,P_PINK),("Company",28,P_PRIMARY),("Admin",48,CYAN)]:
-        draw.rounded_rectangle([W-80,ry,W-5,ry+16], radius=4, fill=(20,8,45))
-        draw.text((W-75, ry+2), role, font=font(FCONSOLA,10), fill=rcol)
-
-    draw.text((18,18), "PROJECT  /  03", font=font(FCONSOLA,12), fill=TEXT_DIM)
-    draw_thumb_label(draw, W, H, "CRMS", "Spring Boot  •  Next.js  •  MongoDB  •  JWT", "🔄")
-    out = os.path.join(PROJECTS, "project-03.png")
-    img.save(out)
-    print(f"  → {out}")
-
-
-def gen_project_04_ipl():
-    """IPL Analytics — data viz / charts"""
-    W, H = 480, 260
-    img, draw = project_thumb_base(W,H)
-
-    # Bar chart
-    chart_x, chart_y = 40, 20
-    chart_w, chart_h = 240, 155
-    # Axes
-    draw.line([(chart_x, chart_y),(chart_x, chart_y+chart_h)], fill=P_MID, width=2)
-    draw.line([(chart_x, chart_y+chart_h),(chart_x+chart_w, chart_y+chart_h)], fill=P_MID, width=2)
-    # Bars
-    bars = [0.6,0.85,0.45,0.95,0.7,0.55,0.8,0.65,0.9,0.5]
-    colors = [P_PRIMARY,P_PINK,P_NEON,CYAN,GREEN_NEO,P_PRIMARY,P_PINK,CYAN,GREEN_NEO,P_NEON]
-    bw = chart_w // len(bars) - 4
-    for bi,(bv,bc) in enumerate(zip(bars,colors)):
-        bh2 = int(chart_h * bv)
-        bx = chart_x + bi*(bw+4) + 4
-        by_top = chart_y + chart_h - bh2
-        # Bar glow
-        for gr in [4,2]:
-            draw.rectangle([bx-gr, by_top-gr, bx+bw+gr, chart_y+chart_h+gr], fill=(*bc[:3],25))
-        draw.rectangle([bx, by_top, bx+bw, chart_y+chart_h], fill=bc)
-        # Top highlight
-        draw.rectangle([bx, by_top, bx+bw, by_top+2], fill=(255,255,255))
-
-    # Line chart overlay (trend line)
-    pts = []
-    for bi,bv in enumerate(bars):
-        lx = chart_x + bi*(bw+4) + 4 + bw//2
-        ly = chart_y + chart_h - int(chart_h*bv)
-        pts.append((lx,ly))
-    for i in range(len(pts)-1):
-        draw.line([pts[i],pts[i+1]], fill=P_PINK, width=2)
-    for px,py in pts:
-        draw.ellipse([px-3,py-3,px+3,py+3], fill=P_PINK)
-
-    # Stats cards on right
-    stats = [("768","Matches"),("12.5K","Deliveries"),("94%","Accuracy")]
-    for si,(val,lbl) in enumerate(stats):
-        sx = chart_x+chart_w+25
-        sy = 20+si*52
-        draw.rectangle([sx,sy,sx+110,sy+42], fill=(15,8,38))
-        draw.rectangle([sx,sy,sx+4,sy+42], fill=P_PRIMARY)
-        draw.text((sx+10,sy+5), val, font=font(FGOTHICB,18), fill=P_LAVEN)
-        draw.text((sx+10,sy+26), lbl, font=font(FCONSOLA,11), fill=TEXT_DIM)
-
-    draw.text((18,18), "PROJECT  /  04", font=font(FCONSOLA,12), fill=TEXT_DIM)
-    draw_thumb_label(draw, W, H, "IPL Analytics", "Python  •  Pandas  •  Scikit-learn  •  Plotly", "📊")
-    out = os.path.join(PROJECTS, "project-04.png")
-    img.save(out)
-    print(f"  → {out}")
-
+    out_gif = os.path.join(ASSETS, "footer.gif")
+    q_frames = [f.quantize(colors=160, dither=Image.Dither.FLOYDSTEINBERG) for f in frames]
+    q_frames[0].save(
+        out_gif,
+        save_all=True,
+        append_images=q_frames[1:],
+        optimize=True,
+        duration=70,
+        loop=0
+    )
+    print(f"Saved Footer GIF: {out_gif} ({os.path.getsize(out_gif) // 1024} KB)")
 
 if __name__ == "__main__":
-    random.seed(0)
-    print("=" * 60)
-    print(" PURPLE PIXEL UNIVERSE — ARTWORK GENERATOR")
-    print("=" * 60)
-
-    generate_header(total_frames=36)
-    generate_footer(total_frames=24)
-    generate_anime_avatar()
-
-    print("Generating PROJECT THUMBNAILS...")
-    gen_project_01_reqtrace()
-    gen_project_02_iws()
-    gen_project_03_crms()
-    gen_project_04_ipl()
-
-    print()
-    print("All artwork generated successfully!")
-    all_files = []
-    for root, dirs, files in os.walk(ASSETS):
-        for f in files:
-            path = os.path.join(root, f)
-            size = os.path.getsize(path)
-            all_files.append((path.replace(ASSETS, "assets"), size))
-    for name, size in all_files:
-        print(f"  {name:50s}  {size//1024:>5} KB")
+    generate_header_gif(total_frames=36)
+    generate_footer_gif(total_frames=24)
